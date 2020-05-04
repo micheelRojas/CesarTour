@@ -1,0 +1,5 @@
+<application>
+  <component name="Git.Application.Settings">
+    <option name="myPathToGit" value="/opt/GitHub Desktop/resources/app/git/libexec/git-core/git" />
+  </component>
+</application>
