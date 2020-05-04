@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_municipio">
+
+
+    <fragment
+        android:id="@+id/nav_cultura"
+        android:name="com.example.cesartour.CulturaFragment"
+        android:label="Cultura"
+        tools:layout="@layout/fragment_cultura" />
+    <fragment
+        android:id="@+id/nav_eventos"
+        android:name="com.example.cesartour.EventosFragment"
+        android:label="Eventos"
+        tools:layout="@layout/fragment_eventos" />
+    <fragment
+        android:id="@+id/nav_actividades"
+        android:name="com.example.cesartour.ActividadesFragment"
+        android:label="Actividades"
+        tools:layout="@layout/fragment_eventos" />
+    <fragment
+        android:id="@+id/nav_sitio"
+        android:name="com.example.cesartour.SitioFragment"
+        android:label="Sitios de interes"
+        tools:layout="@layout/fragment_sitio" />
+    <fragment
+        android:id="@+id/nav_municipio"
+        android:name="com.example.cesartour.MunicipioFragment"
+        android:label="Municipio"
+        tools:layout="@layout/fragment_municipio" />
+
+</navigation>
