@@ -1,0 +1,2 @@
+rootProject.name='CesarTour'
+include ':app'

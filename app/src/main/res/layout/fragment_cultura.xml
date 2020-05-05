@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CulturaFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="44dp"
+            android:layout_marginLeft="44dp"
+            android:layout_marginTop="40dp"
+            android:text="Municipio"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/spinner_Municipio"
+            android:layout_width="205dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="150dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="31dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="15dp"
+            android:spinnerMode="dropdown" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="41dp"
+            android:layout_marginLeft="41dp"
+            android:layout_marginTop="75dp"
+            android:text="Categoria"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/spinner_categoria"
+            android:layout_width="207dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="150dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="73dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
+            android:spinnerMode="dropdown" />
+
+
+        <TextView
+            android:id="@+id/municipiobuscado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+
+            android:layout_marginTop="105dp"
+            android:layout_marginEnd="153dp"
+            android:layout_marginRight="153dp"
+            android:gravity="center_horizontal"
+            android:text="Municipio buscado"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imagen_municipio"
+            android:layout_width="87dp"
+            android:layout_height="61dp"
+            android:layout_below="@+id/municipiobuscado"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="176dp"
+            android:layout_marginRight="176dp"
+            android:src="@drawable/ic_menu_gallery" />
+
+        <TextView
+            android:id="@+id/historia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imagen_municipio"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="190dp"
+            android:layout_marginRight="190dp"
+            android:text="Historia"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <ListView
+            android:id="@+id/listView_historia"
+            android:layout_width="389dp"
+            android:layout_height="56dp"
+            android:layout_below="@+id/historia"
+
+            ></ListView>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:text="Cultura"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/leyendas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/listView_historia"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="181dp"
+            android:layout_marginRight="181dp"
+            android:text="Leyendas"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <ListView
+            android:id="@+id/listView_leyendas"
+            android:layout_width="389dp"
+            android:layout_height="56dp"
+            android:layout_below="@+id/leyendas"
+
+            android:layout_marginTop="11dp"></ListView>
+
+        <TextView
+            android:id="@+id/junglares"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/listView_leyendas"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="188dp"
+            android:layout_marginRight="188dp"
+            android:text="Junglares"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <ListView
+            android:id="@+id/listView_junglares"
+            android:layout_width="389dp"
+            android:layout_height="56dp"
+            android:layout_below="@+id/junglares"
+
+            android:layout_marginTop="7dp"></ListView>
+
+        <TextView
+            android:id="@+id/musica"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/listView_junglares"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="9dp"
+            android:layout_marginEnd="186dp"
+            android:layout_marginRight="186dp"
+            android:text="Musica Tipica"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <ListView
+            android:id="@+id/listView_musica"
+            android:layout_width="389dp"
+            android:layout_height="56dp"
+            android:layout_below="@+id/musica"
+
+            android:layout_marginTop="7dp"></ListView>
+
+
+    </RelativeLayout>
+    </ScrollView>
+</FrameLayout>
