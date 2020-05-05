@@ -27,4 +27,11 @@
         android:adjustViewBounds="false"
         android:src="@drawable/mapa_departamento_cesar_municipios" />
 
+    <ImageView
+        android:id="@+id/button_valledupar"
+        android:src="@drawable/valledupar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button" />
+
 </FrameLayout>

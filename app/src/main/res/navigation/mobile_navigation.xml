@@ -20,7 +20,7 @@
         android:id="@+id/nav_actividades"
         android:name="com.example.cesartour.ActividadesFragment"
         android:label="Actividades"
-        tools:layout="@layout/fragment_eventos" />
+        tools:layout="@layout/fragment_actividades" />
     <fragment
         android:id="@+id/nav_sitio"
         android:name="com.example.cesartour.SitioFragment"
@@ -31,5 +31,6 @@
         android:name="com.example.cesartour.MunicipioFragment"
         android:label="Municipio"
         tools:layout="@layout/fragment_municipio" />
+
 
 </navigation>
