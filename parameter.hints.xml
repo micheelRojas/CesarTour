@@ -1,0 +1,9 @@
+<application>
+  <component name="ParameterNameHintsSettings">
+    <blacklists>
+      <blacklist language="Java">
+        <added pattern="android.content.Intent.Intent(action,uri,packageContext,cls)" />
+      </blacklist>
+    </blacklists>
+  </component>
+</application>
