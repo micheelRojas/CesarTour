@@ -18,6 +18,8 @@ import com.example.cesartour.interfaces.iComunicaFragments;
 public class MunicipioFragment extends Fragment {
 
     private ImageButton btnvalleduparPopup;
+    private ImageButton btnmanaurePopup;
+    private ImageButton btnpueblo_belloPopup;
     iComunicaFragments interfaceComunicaFraments;
     Activity activity;
     View view;
@@ -35,25 +37,38 @@ public class MunicipioFragment extends Fragment {
 
 
         btnvalleduparPopup = view.findViewById(R.id.button_valledupar);
+        btnpueblo_belloPopup = view.findViewById(R.id.button_pueblo_bello);
+        btnmanaurePopup = view.findViewById(R.id.button_manaure);
+        Municipios();
+        return view;
 
-//     view2 =inflater.inflate(R.layout.activity_popup_valledupar,container,false);
 
+    }
+    public  void Municipios(){
         btnvalleduparPopup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-
-
-             interfaceComunicaFraments.popup_valledupar(v);
-
-
+                interfaceComunicaFraments.popup_valledupar(v);
 
             }
         });
+       btnmanaurePopup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                interfaceComunicaFraments.popup_manaure(v);
 
-        return view;
+            }
+        });
+       btnpueblo_belloPopup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                interfaceComunicaFraments.popup_pueblo_bello(v);
+
+            }
+        });
 
     }
 

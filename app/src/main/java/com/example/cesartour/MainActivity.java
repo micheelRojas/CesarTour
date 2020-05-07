@@ -86,6 +86,17 @@ public class MainActivity extends AppCompatActivity implements iComunicaFragment
       dialog.show();
     }
 
+    @Override
+    public void popup_manaure(View view) {
+        dialog.setContentView(R.layout.activity_popup_manaure);
+        dialog.show();
+    }
+
+    @Override
+    public void popup_pueblo_bello(View view) {
+        dialog.setContentView(R.layout.activity_popup_pueblo_bello);
+        dialog.show();
+    }
 
 
 }

@@ -5,11 +5,9 @@
     android:layout_width="300dp"
     android:layout_gravity="center"
     android:layout_height="300dp"
-    tools:context=".PopupMunicipio.PopupValledupar"
-
+    tools:context=".PopupMunicipio.Popup_pueblo_bello"
     android:padding="16dp"
     android:background="@color/popup">
-
     <ImageView
         android:id="@+id/foto"
         android:layout_width="132dp"
@@ -21,7 +19,7 @@
         android:layout_marginTop="25dp"
         android:layout_marginEnd="71dp"
         android:layout_marginRight="71dp"
-        android:src="@drawable/valledupar" />
+        android:src="@drawable/pueblo_bello" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -30,10 +28,10 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginTop="1dp"
-       android:gravity="center_horizontal"
+        android:gravity="center_horizontal"
         android:layout_marginEnd="86dp"
         android:layout_marginRight="86dp"
-        android:text="Valledupar"
+        android:text="Pueblo Bello"
         android:textSize="15sp"
         android:textColor="@color/black"
         android:textStyle="bold" />
@@ -44,13 +42,13 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="115dp"
+        android:layout_marginTop="110dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginRight="18dp"
         android:gravity="center_horizontal"
-        android:layout_marginEnd="21dp"
-        android:layout_marginRight="21dp"
         android:text="Descripcion"
-        android:textSize="13sp"
         android:textColor="@color/black"
+        android:textSize="13sp"
         android:textStyle="bold" />
 
     <TextView
@@ -62,7 +60,7 @@
         android:layout_marginTop="140dp"
         android:layout_marginEnd="7dp"
         android:layout_marginRight="14dp"
-        android:text="@string/DescripcionValledupar"
+        android:text="@string/DescripcionPueblo_Bello"
         android:textSize="10sp"
         android:textStyle="bold" />
 
@@ -72,9 +70,9 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="207dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginRight="50dp"
+        android:layout_marginTop="170dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginRight="55dp"
         android:gravity="center_horizontal"
         android:text="Historia"
         android:textColor="@color/black"
@@ -82,17 +80,15 @@
         android:textStyle="bold" />
 
     <TextView
-        android:layout_width="270dp"
-        android:layout_height="54dp"
+        android:layout_width="284dp"
+        android:layout_height="94dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="230dp"
-        android:layout_marginEnd="14dp"
-        android:layout_marginRight="14dp"
-        android:text="@string/HistoriaValledupar"
+        android:layout_marginTop="190dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginRight="0dp"
+        android:text="@string/HistoriaPueblo_Bello"
         android:textSize="10sp"
         android:textStyle="bold" />
-
-
 </RelativeLayout>

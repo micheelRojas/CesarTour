@@ -12,6 +12,39 @@
     <string name="menu_slideshow">Slideshow</string>
 
     <string name="home_second">Home Second</string>
+    <string name="DescripcionValledupar">
+        Es uno de los principales epicentros musicales, culturales y folclóricos de
+        Colombia por ser la cuna del vallenato género musical de mayor
+        popularidad en el país y actualmente símbolo de la música colombiana.
+    </string>
+    <string name="HistoriaValledupar">
+        Fue fundada inicialmente el primero de octubre de 1544, por el capitán
+        Francisco Salguero, quien sin mandato oficial alguno, decidió establecer
+        a orillas del río Guatapurí, en las tierras de los indios Eupari </string>
+    <string name="DescripcionPueblo_Bello">
+        La actividad económica del municipio se basa en el sector agrícola, pecuario
+        y la producción cafetera.
+
+    </string>
+    <string name="HistoriaPueblo_Bello">
+        Finalizando la década de los años 20 Lucila Mestre, hija de Binerva Triana
+        de Mestre lleva al Concejo de Valledupar el proyecto de cambio de nombre y
+        en memoria de su querida madre quien continuamente manifestaba que un paisaje
+        tan hermoso con pintorescas casas y laboriosos y buenos moradores debería llamarse
+        Pueblo Bello
+    </string>
+    <string name="DescripcionManaure">
+        El río Manaure, es el principal curso hídrico del Municipio. Nace en el Cerro Pintado
+        en la frontera Colombo-Venezolana y tras salvaguardar una fuerte pendiente, desemboca
+        en el río Cesar al occidente.
+    </string>
+    <string name="Historia_Manaure">
+        Fue fundada en el año 1875 por el señor Buenaventura Maya, quien pastaba sus
+        ganados por los alrededores de la Población de La Paz. El nombre del municipio
+        proviene de un prestigioso y noble cacique de la región del Occidente Venezolano,
+        más allá de la costa oriental del Lago de Maracaibo.
+    </string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
