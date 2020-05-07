@@ -7,31 +7,51 @@
     tools:context=".CulturaFragment">
 
     <!-- TODO: Update blank fragment layout -->
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_horizontal"
-        android:text="Municipio"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="382dp"
-        android:layout_height="500dp"
-        android:layout_margin="40sp"
-        android:layout_marginLeft="0sp"
-        android:layout_marginTop="0sp"
-        android:layout_marginRight="0sp"
-        android:adjustViewBounds="false"
-        android:src="@drawable/mapa_departamento_cesar_municipios" />
-
-    <ImageView
-        android:id="@+id/button_valledupar"
-        android:src="@drawable/valledupar"
+    <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button" />
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:text="Municipio"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/mapa"
+            android:layout_width="382dp"
+            android:layout_height="500dp"
+            android:layout_margin="40sp"
+            android:layout_marginLeft="0sp"
+            android:layout_marginTop="0sp"
+            android:layout_marginRight="0sp"
+            android:adjustViewBounds="false"
+            android:color="@color/white"
+            android:src="@drawable/mapa" />
+
+        <ImageButton
+            android:id="@+id/button_valledupar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="70dp"
+            android:layout_marginEnd="97dp"
+            android:layout_marginRight="97dp"
+            android:background="@drawable/buttonstyle"
+            android:src="@drawable/pin"
+            android:text="Button" />
+
+
+
+
+    </RelativeLayout>
+
+
+
+
 
 </FrameLayout>

@@ -1,4 +1,4 @@
-package com.example.cesartour;
+package com.example.cesartour.PopupMunicipio;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.ImageView;
+
+import com.example.cesartour.R;
 
 public class PopupValledupar extends AppCompatActivity {
 
@@ -19,7 +21,7 @@ public class PopupValledupar extends AppCompatActivity {
 
         int ancho =medididaVentana.widthPixels;
         int alto= medididaVentana.heightPixels;
-        getWindow().setLayout((int)(ancho*0.85),(int)(alto* 0.5));
+        getWindow().setLayout((int)(ancho*0.3),(int)(alto* 0.3));
 
 
 

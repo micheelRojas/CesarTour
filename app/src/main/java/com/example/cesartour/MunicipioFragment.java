@@ -1,42 +1,52 @@
 package com.example.cesartour;
 
-import android.annotation.SuppressLint;
-import android.app.Dialog;
-import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
+import android.widget.ImageButton;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.example.cesartour.PopupMunicipio.PopupValledupar;
+import com.example.cesartour.interfaces.iComunicaFragments;
 
 
 public class MunicipioFragment extends Fragment {
 
-    private ImageView btnvalleduparPopup;
-    Dialog dia;
+    private ImageButton btnvalleduparPopup;
+    iComunicaFragments interfaceComunicaFraments;
+    Activity activity;
+    View view;
+    View view2;
+    private Context context;
+   PopupValledupar popupValledupar;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view =inflater.inflate(R.layout.fragment_municipio, container, false);
+
+      view  =inflater.inflate(R.layout.fragment_municipio, container, false);
+
 
         btnvalleduparPopup = view.findViewById(R.id.button_valledupar);
 
+//     view2 =inflater.inflate(R.layout.activity_popup_valledupar,container,false);
 
         btnvalleduparPopup.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
-                abrir();
 
-              //  startActivity(new Intent(MunicipioFragment.this,PopupValledupar.class));//
+
+
+             interfaceComunicaFraments.popup_valledupar(v);
+
+
 
             }
         });
@@ -46,11 +56,24 @@ public class MunicipioFragment extends Fragment {
 
 
     }
-@SuppressLint("ResourceAsColor")
-public  void abrir(){
-        dia.setContentView(R.layout.activity_popup_valledupar);
-        dia.getWindow().setBackgroundDrawable(new ColorDrawable(android.R.color.transparent));
-        dia.show();
 
-}
+    /**
+     * Called when a fragment is first attached to its context.
+     * {@link #onCreate(Bundle)} will be called after this.
+     *
+     * @param context
+     */
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        if(context instanceof Activity){
+           activity= (Activity) context;
+           interfaceComunicaFraments= (iComunicaFragments) activity;
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+    }
 }
