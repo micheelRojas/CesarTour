@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -35,6 +36,12 @@ public class SitioFragment extends Fragment {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_sitio, container, false);
         listView_sitios = (ListView) view.findViewById(R.id.listView_sitios);
+
+        Spinner spinner = (Spinner) view.findViewById(R.id.spinner_tipo);
+        String[] datos = new String[] {"Hotel", "Restaurante"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
+                android.R.layout.simple_spinner_item, datos);
+
         try{
             displayDatabaseInfoText();
         }catch(IOException e){}
@@ -130,7 +137,6 @@ public class SitioFragment extends Fragment {
 
        int Id = Integer.parseInt(id);
 
-
         for (Sitio item: sitioList) {
             if(item.getCodigo() == Id){
                 sitio.setCodigo(item.getCodigo());
@@ -150,8 +156,6 @@ public class SitioFragment extends Fragment {
         intent.putExtra("descripcion", sitio.getDescripcion());
         intent.putExtra("direccion", sitio.getDireccion());
         intent.putExtra("municipio", sitio.getMunicipio());
-
-        //Toast.makeText(this.getActivity(), "Este" + sitioList.size(), Toast.LENGTH_SHORT);
 
         startActivity(intent);
     }
