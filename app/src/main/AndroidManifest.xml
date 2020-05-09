@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-<<<<<<< HEAD
+
         <activity android:name=".PopupMunicipio.Popup_pueblo_bello"
             android:theme="@style/AppTheme.TemaPopup"
             ></activity>

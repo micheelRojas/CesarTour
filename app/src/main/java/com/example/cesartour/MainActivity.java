@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.Menu;
 import android.widget.ImageView;
 import android.widget.Toast;
-
+import java.io.InputStream;
 import com.example.cesartour.interfaces.iComunicaFragments;
 import com.example.cesartour.ui.gallery.GalleryViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -26,13 +26,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-<<<<<<< HEAD
 public class MainActivity extends AppCompatActivity implements iComunicaFragments {
-=======
-import java.io.InputStream;
-
-public class MainActivity extends AppCompatActivity {
->>>>>>> rama
 
     private AppBarConfiguration mAppBarConfiguration;
     Dialog dialog;
