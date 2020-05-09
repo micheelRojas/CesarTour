@@ -9,11 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+<<<<<<< HEAD
         <activity android:name=".PopupMunicipio.Popup_pueblo_bello"
             android:theme="@style/AppTheme.TemaPopup"
             ></activity>
         <activity android:name=".PopupMunicipio.Popup_manaure"
             android:theme="@style/AppTheme.TemaPopup"/>
+=======
+        <activity android:name=".Detalles"></activity>
+>>>>>>> rama
         <activity
             android:name=".PopupMunicipio.PopupValledupar"
             android:theme="@style/AppTheme.TemaPopup" />

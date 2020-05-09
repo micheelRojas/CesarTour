@@ -26,7 +26,13 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+<<<<<<< HEAD
 public class MainActivity extends AppCompatActivity implements iComunicaFragments {
+=======
+import java.io.InputStream;
+
+public class MainActivity extends AppCompatActivity {
+>>>>>>> rama
 
     private AppBarConfiguration mAppBarConfiguration;
     Dialog dialog;
