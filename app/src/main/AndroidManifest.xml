@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Detalles"></activity>
         <activity
             android:name=".PopupValledupar"
             android:theme="@style/AppTheme.TemaPopup" />

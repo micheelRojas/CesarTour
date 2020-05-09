@@ -1,0 +1,3 @@
+0;La Sierra;Restaurante;Ubicados en el hotel Tativan;Posee un exclusivo y contemporáneo diseño. Teléfono: 5707474;Valledupar
+1;El Cacha;Hotel;Calle 44;Estilo colonial;Manaure
+2;Las delicias;Restaurante;Diagonal 22;Estilo precolombino;Pueblo Bello
