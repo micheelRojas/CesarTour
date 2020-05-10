@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.cesartour.BLL.EventoService;
 import com.example.cesartour.BLL.SitioService;
+import com.example.cesartour.Entity.Actividad;
 import com.example.cesartour.Entity.Evento;
 import com.example.cesartour.Entity.Sitio;
 
@@ -27,6 +28,9 @@ public class EventosFragment extends Fragment {
     ListView listView_eventos;
     ArrayList<String> idList;
     ArrayList<Evento> eventoList;
+    Spinner municipioSpinner;
+    Button buttonFilter;
+    ArrayAdapter adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -36,10 +40,66 @@ public class EventosFragment extends Fragment {
         View view =  inflater.inflate(R.layout.fragment_eventos, container, false);
         listView_eventos = (ListView) view.findViewById(R.id.listView_eventos);
 
+        buttonFilter =  view.findViewById(R.id.buttonFilter);
+        municipioSpinner = (Spinner) view.findViewById(R.id.spinner_Municipio);
+        crearSpinners(municipioSpinner);
+
         try{
             displayDatabaseInfoText();
         }catch(IOException e){}
+
+        buttonFilter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                filter();
+            }
+        });
         return  view;
+    }
+
+    private void crearSpinners(Spinner municipioSpinner){
+
+        ArrayList<String> municipioSpinnerList = new ArrayList<>();
+        municipioSpinnerList.add("Todos");
+        municipioSpinnerList.add("Valledupar");
+        municipioSpinnerList.add("Bosconia");
+        municipioSpinnerList.add("Manaure");
+        final ArrayAdapter<String> municipioAdapter = new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_spinner_item,
+                municipioSpinnerList);
+        municipioSpinner.setAdapter(municipioAdapter);
+    }
+
+    public void filter() {
+        String municipio = municipioSpinner.getSelectedItem().toString();
+
+        ArrayList<String> listAuxiliar = new ArrayList<>();
+        final ArrayList<Evento> listAuxiliarEventos = new ArrayList<>();
+        idList.clear();
+        for (Evento item: eventoList) {
+            if((item.getMunicipio().equals(municipio))){
+                String dateSitio = item.getNombre() + "\n" + item.getMunicipio();
+                listAuxiliar.add(dateSitio);
+                listAuxiliarEventos.add(item);
+                idList.add(item.getCodigo()+"");
+            }else{
+                if(municipio.equals("Todos")){
+                    String dateSitio = item.getNombre() + "\n" + item.getMunicipio();
+                    listAuxiliar.add(dateSitio);
+                    listAuxiliarEventos.add(item);
+                    idList.add(item.getCodigo()+"");
+                }
+            }
+        }
+        adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, listAuxiliar);
+        listView_eventos.setAdapter(adapter);
+        listView_eventos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast.makeText(adapter.getContext(), "Detalles evento", Toast.LENGTH_SHORT).show();
+                Selected(idList.get(i), listAuxiliarEventos);
+            }
+        });
+
     }
 
     private void displayDatabaseInfoText() throws IOException {
@@ -54,7 +114,8 @@ public class EventosFragment extends Fragment {
             listEventos.add(dateEvento);
             idList.add(item.getCodigo()+"");
         }
-        final ArrayAdapter adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, listEventos);
+
+        adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, listEventos);
         listView_eventos.setAdapter(adapter);
 
         listView_eventos.setOnItemClickListener(new AdapterView.OnItemClickListener() {

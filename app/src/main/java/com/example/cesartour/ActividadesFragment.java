@@ -27,6 +27,10 @@ public class ActividadesFragment extends Fragment {
     ListView listView_actividades;
     ArrayList<String> idList;
     ArrayList<Actividad> actividadList;
+    Spinner categoriaSpinner;
+    Spinner municipioSpinner;
+    Button buttonFilter;
+    ArrayAdapter adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -36,10 +40,89 @@ public class ActividadesFragment extends Fragment {
         View view =  inflater.inflate(R.layout.fragment_actividades, container, false);
         listView_actividades = (ListView) view.findViewById(R.id.listView_actividades);
 
+        buttonFilter =  view.findViewById(R.id.buttonFilter);
+        categoriaSpinner = (Spinner) view.findViewById(R.id.spinner_actividad);
+        municipioSpinner = (Spinner) view.findViewById(R.id.spinner_Municipio);
+        crearSpinners(categoriaSpinner, municipioSpinner);
+
         try{
             displayDatabaseInfoText();
         }catch(IOException e){}
+        buttonFilter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                filter();
+            }
+        });
         return  view;
+    }
+
+    private void crearSpinners(Spinner categoriaSpinner, Spinner municipioSpinner){
+        ArrayList<String> categoriaSpinnerList = new ArrayList<>();
+        categoriaSpinnerList.add("Todas");
+        categoriaSpinnerList.add("Paseo");
+        categoriaSpinnerList.add("Parapente");
+        categoriaSpinnerList.add("Caminata");
+        final ArrayAdapter<String> categoriaAdapter = new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_spinner_item,
+                categoriaSpinnerList);
+        categoriaSpinner.setAdapter(categoriaAdapter);
+
+        ArrayList<String> municipioSpinnerList = new ArrayList<>();
+        municipioSpinnerList.add("Todos");
+        municipioSpinnerList.add("Valledupar");
+        municipioSpinnerList.add("Manaure");
+        final ArrayAdapter<String> municipioAdapter = new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_spinner_item,
+                municipioSpinnerList);
+        municipioSpinner.setAdapter(municipioAdapter);
+    }
+
+    public void filter() {
+        String categoria = categoriaSpinner.getSelectedItem().toString();
+        String municipio = municipioSpinner.getSelectedItem().toString();
+
+        ArrayList<String> listAuxiliar = new ArrayList<>();
+        final ArrayList<Actividad> listAuxiliarActividades = new ArrayList<>();
+        idList.clear();
+        for (Actividad item: actividadList) {
+            if((item.getCategoria().equals(categoria)) && (item.getMunicipio().equals(municipio))){
+                String dateSitio = item.getCategoria() + "\n" + item.getNombre();
+                listAuxiliar.add(dateSitio);
+                listAuxiliarActividades.add(item);
+                idList.add(item.getCodigo()+"");
+            }else{
+                if(categoria.equals("Todas") && item.getMunicipio().equals(municipio)){
+                    String dateSitio = item.getCategoria() + "\n" + item.getNombre();
+                    listAuxiliar.add(dateSitio);
+                    listAuxiliarActividades.add(item);
+                    idList.add(item.getCodigo()+"");
+                }else{
+                    if(item.getCategoria().equals(categoria) && municipio.equals("Todos")){
+                        String dateSitio = item.getCategoria() + "\n" + item.getNombre();
+                        listAuxiliar.add(dateSitio);
+                        listAuxiliarActividades.add(item);
+                        idList.add(item.getCodigo()+"");
+                    }else{
+                        if(categoria.equals("Todas") && municipio.equals("Todos")) {
+                            String dateSitio = item.getCategoria() + "\n" + item.getNombre();
+                            listAuxiliar.add(dateSitio);
+                            listAuxiliarActividades.add(item);
+                            idList.add(item.getCodigo()+"");
+                        }
+                    }
+                }
+            }
+        }
+        adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, listAuxiliar);
+        listView_actividades.setAdapter(adapter);
+
+        listView_actividades.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast.makeText(adapter.getContext(), "Detalles actividad", Toast.LENGTH_SHORT).show();
+                Selected(idList.get(i), actividadList);
+            }
+        });
+
     }
 
     private void displayDatabaseInfoText() throws IOException {
@@ -54,7 +137,7 @@ public class ActividadesFragment extends Fragment {
             listActividades.add(dateActividad);
             idList.add(item.getCodigo()+"");
         }
-        final ArrayAdapter adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, listActividades);
+        adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, listActividades);
         listView_actividades.setAdapter(adapter);
 
         listView_actividades.setOnItemClickListener(new AdapterView.OnItemClickListener() {

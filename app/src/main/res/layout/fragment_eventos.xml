@@ -41,6 +41,19 @@
             android:layout_marginRight="15dp"
             android:spinnerMode="dropdown" />
 
+        <Button
+            android:id="@+id/buttonFilter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="109dp"
+
+            android:layout_marginLeft="109dp"
+            android:layout_marginTop="131dp"
+            android:text="@string/button_filter" />
+
 
         <TextView
             android:id="@+id/eventos"
@@ -60,11 +73,11 @@
 
         <ListView
             android:id="@+id/listView_eventos"
-            android:layout_width="389dp"
-            android:layout_height="461dp"
+            android:layout_width="match_parent"
+            android:layout_height="470dp"
             android:layout_below="@+id/eventos"
 
-            android:layout_marginTop="8dp"></ListView>
+            android:layout_marginTop="86dp"></ListView>
     </RelativeLayout>
 
 </FrameLayout>

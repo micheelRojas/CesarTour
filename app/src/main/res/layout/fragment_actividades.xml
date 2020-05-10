@@ -66,7 +66,21 @@
         android:layout_marginRight="15dp"
         android:layout_marginBottom="15dp"
         android:spinnerMode="dropdown" />
-    <TextView
+
+        <Button
+            android:id="@+id/buttonFilter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="109dp"
+
+            android:layout_marginLeft="109dp"
+            android:layout_marginTop="131dp"
+            android:text="@string/button_filter" />
+
+        <TextView
         android:id="@+id/actividades_Buscadas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -84,11 +98,12 @@
 
         <ListView
             android:id="@+id/listView_actividades"
-            android:layout_width="389dp"
-            android:layout_height="461dp"
+            android:layout_width="match_parent"
+            android:layout_height="468dp"
             android:layout_below="@+id/actividades_Buscadas"
 
-            ></ListView>
+            android:layout_marginTop="55dp"></ListView>
+
     </RelativeLayout>
 
 </FrameLayout>
