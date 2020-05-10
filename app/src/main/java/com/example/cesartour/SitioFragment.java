@@ -41,7 +41,7 @@ public class SitioFragment extends Fragment {
         View view =  inflater.inflate(R.layout.fragment_sitio, container, false);
         listView_sitios = (ListView) view.findViewById(R.id.listView_sitios);
 
-        //buttonFilter = (Button) view.findViewById(R.id.buttonFilter);
+        buttonFilter =  view.findViewById(R.id.buttonFilter);
         categoriaSpinner = (Spinner) view.findViewById(R.id.spinner_tipo);
         ArrayList<String> categoriaSpinnerList = new ArrayList<>();
         categoriaSpinnerList.add("Todas");
@@ -62,6 +62,13 @@ public class SitioFragment extends Fragment {
         try{
             displayDatabaseInfoText();
         }catch(IOException e){}
+        buttonFilter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                filter(v);
+            }
+        });
         return  view;
     }
 
