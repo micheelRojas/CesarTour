@@ -1,5 +1,6 @@
 package com.example.cesartour;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,7 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -24,10 +28,11 @@ import static android.content.ContentValues.TAG;
 public class SitioFragment extends Fragment {
 
     ListView listView_sitios;
-    //ArrayList<String> sitioList;
     ArrayList<String> idList;
-    //ArrayList<Sitio> sitios = new ArrayList<>();
+    Spinner categoriaSpinner;
 
+    ArrayList<Sitio> sitioList;
+    Button buttonFilter;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -35,71 +40,49 @@ public class SitioFragment extends Fragment {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_sitio, container, false);
         listView_sitios = (ListView) view.findViewById(R.id.listView_sitios);
+
+        //buttonFilter = (Button) view.findViewById(R.id.buttonFilter);
+        categoriaSpinner = (Spinner) view.findViewById(R.id.spinner_tipo);
+        ArrayList<String> categoriaSpinnerList = new ArrayList<>();
+        categoriaSpinnerList.add("Todas");
+        categoriaSpinnerList.add("Restaurante");
+        categoriaSpinnerList.add("Hotel");
+        final ArrayAdapter<String> categoriaAdapter = new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_spinner_item,
+                categoriaSpinnerList);
+        categoriaSpinner.setAdapter(categoriaAdapter);
+        //final String categoria = categoriaSpinner.getSelectedItem().toString();
+        /*categoriaSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
+            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+                categoriaAdapter.getFilter().filter(categoria);
+            }
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        }); */
+
         try{
             displayDatabaseInfoText();
         }catch(IOException e){}
         return  view;
     }
 
-    /*private void displayDatabaseInfoText() throws IOException {
-        SitioService sitioService = new SitioService(this.getContext());
-        sitioList = sitioService.displayDatabaseInfoText();
-        idList = new ArrayList<>();
-
-        sitios = sitioService.returnSitios();
 
 
-        final ArrayAdapter adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, sitioList);
+    public void filter(View view) {
+        String categoria = categoriaSpinner.getSelectedItem().toString();
+        ArrayList<Sitio> listAuxiliar = new ArrayList<>();
+        for (Sitio item: sitioList) {
+            if(item.getCategoria() == categoria){
+                listAuxiliar.add(item);
+            }
+        }
+        final ArrayAdapter adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, listAuxiliar);
         listView_sitios.setAdapter(adapter);
 
-        String tamaño = Integer.toString(sitioList.size());
-        Toast.makeText(this.getActivity(), tamaño, Toast.LENGTH_SHORT ).show();
-
-        //+++++++
-        for (String item: sitioList) {
-            idList.add(item+"");
-        }
-
-        listView_sitios.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                //Toast.makeText(adapter.getContext(), "Detalles sitio", Toast.LENGTH_SHORT).show();
-                SiteSelected(idList.get(i));
-            }
-        });
-    } */
-
-    /*private void SiteSelected(String id){
-        //String selection = id + "=?";
-        //String[] args = new String[] {id};
-
-
-        Sitio sitio = new Sitio();
-        for (Sitio item: sitios) {
-            if(Integer.toString(item.getCodigo()).equals(id)){
-                sitio.setCodigo(item.getCodigo());
-                sitio.setCategoria(item.getCategoria());
-                sitio.setNombre(item.getNombre());
-                sitio.setDescripcion(item.getDescripcion());
-            }
-        }
-
-        Intent intent = new Intent(getActivity(), Detalles.class);
-        intent.putExtra("id", sitio.getCodigo());
-        intent.putExtra("nombre", sitio.getNombre());
-        intent.putExtra("categoria", sitio.getCategoria());
-        intent.putExtra("descripcion", sitio.getDescripcion());
-
-        Toast.makeText(this.getActivity(), "Este" + sitios.size(), Toast.LENGTH_SHORT);
-
-        startActivity(intent);
-
-        Log.e(TAG, "Error*****************" + sitios.size());
-    } */
+    }
 
     private void displayDatabaseInfoText() throws IOException {
         SitioService sitioService = new SitioService(this.getContext());
-        final ArrayList<Sitio> sitioList;
+
         sitioList = sitioService.displayDatabaseInfoText();
         idList = new ArrayList<>();
         ArrayList<String> listSitios = new ArrayList<>();
@@ -110,7 +93,6 @@ public class SitioFragment extends Fragment {
             idList.add(item.getCodigo()+"");
         }
 
-        //listView_sitios = (ListView) listView_sitios.findViewById(R.id.listView_sitios);
         final ArrayAdapter adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, listSitios);
         listView_sitios.setAdapter(adapter);
 
@@ -125,8 +107,6 @@ public class SitioFragment extends Fragment {
 
    private void SiteSelected(String id, ArrayList<Sitio> sitioList){
         Sitio sitio = new Sitio();
-       String selection = sitio.getCodigo() + "=?";
-       String[] args = new String[] {id};
 
        int Id = Integer.parseInt(id);
 
@@ -151,8 +131,8 @@ public class SitioFragment extends Fragment {
         intent.putExtra("direccion", sitio.getDireccion());
         intent.putExtra("municipio", sitio.getMunicipio());
 
-        //Toast.makeText(this.getActivity(), "Este" + sitioList.size(), Toast.LENGTH_SHORT);
-
         startActivity(intent);
     }
+
+
 }

@@ -15,9 +15,9 @@
             ></activity>
         <activity android:name=".PopupMunicipio.Popup_manaure"
             android:theme="@style/AppTheme.TemaPopup"/>
-=======
+
         <activity android:name=".Detalles"></activity>
->>>>>>> rama
+
         <activity
             android:name=".PopupMunicipio.PopupValledupar"
             android:theme="@style/AppTheme.TemaPopup" />

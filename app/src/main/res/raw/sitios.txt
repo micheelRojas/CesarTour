@@ -1,3 +1,3 @@
-0;La Sierra;Restaurante;Ubicados en el hotel Tativan;Posee un exclusivo y contemporáneo diseño. Teléfono: 5707474;Valledupar
-1;El Cacha;Hotel;Calle 44;Estilo colonial;Manaure
-2;Las delicias;Restaurante;Diagonal 22;Estilo precolombino;Pueblo Bello
+0;La Sierra;Restaurante;Ubicados en el hotel Tativan;Posee un exclusivo y contemporaneo diseño. Teléfono: 5707474;Valledupar
+1;Sonesta;Hotel;Diagonal 10 # 6N - 15;Este hotel moderno se encuentra a 4 km de la Plaza Alfonso Lopez y cuenta con vistas panorámicas a la Sierra Nevada de Santa Marta. Hay WiFi gratuita y aparcamiento gratuito. El restaurante del hotel es excelente, no necesita salir del hotel para cenar, almorzar o desayunar. Bonita piscina y excelente servicio de habitaciones.;Valledupar
+2;Kasvel;Hotel;Carrera 7 N° 16A - 40;El Hotel Kasvel ofrece habitaciones con aire acondicionado en Valledupar. Todas las habitaciones cuentan con TV de pantalla plana con canales vía satélite y baño privado. ;Valledupar

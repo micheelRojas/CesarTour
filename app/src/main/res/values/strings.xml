@@ -61,4 +61,5 @@
     <string name="category"></string>
     <string name="name"></string>
     <string name="description"></string>
+    <string name="button_filter">Filtrar</string>
 </resources>

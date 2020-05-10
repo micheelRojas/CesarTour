@@ -38,41 +38,6 @@ public class SitioRepository {
         this.context = contexto;
     }
 
-    /*public ArrayList<String> displayDatabaseInfoText() throws IOException {
-        InputStream archivo = this.context.getResources().openRawResource(R.raw.sitios);
-        BufferedReader comodo;
-        idList = new ArrayList<String>();
-        sitioList = new ArrayList<String>();
-
-            try {
-                comodo = new BufferedReader(new InputStreamReader(archivo));
-
-                String linea, valores[];
-                Sitio sitio;
-                while ((linea = comodo.readLine()) != null) {
-                    valores = linea.split(";");
-                    sitio = new Sitio();
-                    sitio.setCodigo(Integer.parseInt(valores[0]));
-                    sitio.setNombre(valores[1]);
-                    sitio.setCategoria(valores[2]);
-                    sitio.setDireccion(valores[3]);
-                    sitio.setDescripcion(valores[4]);
-                    sitio.setMunicipio(valores[5]);
-                    sitios.add(sitio);
-
-                    String dateSitios = sitio.getNombre() + "\n" + sitio.getCategoria();
-                    sitioList.add(dateSitios);
-                    idList.add(sitio.getCodigo()+"");
-                }
-            } catch (Exception e) {
-
-            } finally {
-                archivo.close();
-            }
-
-        return sitioList;
-    } */
-
     public ArrayList<Sitio> displayDatabaseInfoText() throws IOException {
         InputStream archivo = this.context.getResources().openRawResource(R.raw.sitios);
         BufferedReader comodo;
@@ -107,9 +72,4 @@ public class SitioRepository {
 
         return sitios;
     }
-
-    /*public ArrayList<Sitio> returnSitios(){
-        ArrayList<Sitio> Lsitios = this.sitios;
-        return Lsitios;
-    } */
 }

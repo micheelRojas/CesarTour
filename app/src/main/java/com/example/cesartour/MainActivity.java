@@ -99,4 +99,6 @@ public class MainActivity extends AppCompatActivity implements iComunicaFragment
     }
 
 
+    public void filter(View view) {
+    }
 }
