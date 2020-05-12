@@ -7,23 +7,23 @@
 
         <item
             android:id="@+id/nav_cultura"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/cultura"
             android:title="Cultura" />
         <item
             android:id="@+id/nav_eventos"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/calendario"
             android:title="Eventos" />
         <item
             android:id="@+id/nav_actividades"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/actividad"
             android:title="Actividades" />
         <item
             android:id="@+id/nav_sitio"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/sitio"
             android:title="Sitios de interes" />
         <item
             android:id="@+id/nav_municipio"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/municipio"
             android:title="Municipio" />
 
 
