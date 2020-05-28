@@ -106,7 +106,7 @@
             <ListView
                 android:id="@+id/listView_sitios"
                 android:layout_width="385dp"
-                android:layout_height="443dp"
+                android:layout_height="200dp"
                 android:layout_below="@+id/sitio"
 
                 android:layout_alignParentEnd="true"
@@ -115,6 +115,17 @@
                 android:layout_marginEnd="7dp"
                 android:layout_marginRight="7dp"></ListView>
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/Recycler_sitios"
+                android:layout_width="385dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sitio"
+
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="297dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginRight="4dp" />
 
         </RelativeLayout>
 

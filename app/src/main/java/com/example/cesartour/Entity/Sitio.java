@@ -2,14 +2,30 @@ package com.example.cesartour.Entity;
 
 import android.widget.ImageView;
 
-public class Sitio {
+import java.io.Serializable;
+
+public class Sitio implements Serializable {
     private int codigo;
     private String nombre;
     private String categoria;
     private String direccion;
     private String descripcion;
     private String municipio;
+    //esta se debe quitar
+
     private ImageView imageView;
+
+    // esta es la que debe  ir
+    private int imageSitio;
+
+    public int getImageSitio() {
+        return imageSitio;
+    }
+
+    public void setImageSitio(int imageSitio) {
+        this.imageSitio = imageSitio;
+    }
+
 
     public ImageView getImageView() {
         return imageView;

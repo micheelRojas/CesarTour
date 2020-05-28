@@ -13,7 +13,10 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.cesartour.Adatadores_Recycler.AdapterActividades;
 import com.example.cesartour.BLL.ActividadService;
 import com.example.cesartour.BLL.SitioService;
 import com.example.cesartour.Entity.Actividad;
@@ -31,7 +34,10 @@ public class ActividadesFragment extends Fragment {
     Spinner municipioSpinner;
     Button buttonFilter;
     ArrayAdapter adapter;
-
+    // lo del recycler
+    ArrayList<Actividad> Actividades;
+    RecyclerView recycler;
+//
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -54,6 +60,23 @@ public class ActividadesFragment extends Fragment {
                 filter();
             }
         });
+        //pongo esto aqui como guia si lo haces diferente no hay problema
+        // lo del recycler
+
+        Actividades= new ArrayList<>();
+        recycler= view.findViewById(R.id.Recycler_actividades);
+        //el tipo de recycler
+        recycler.setLayoutManager(new LinearLayoutManager(getContext()));
+        //Aqui deberia seer llamado el metodo  de llenadao, aunque no se como lo quieras hacer
+        //llenarRecycler();
+        // aqui se le manda la lista de actividades  al adatador No olvides que aun no se a llenado
+        AdapterActividades adapter = new AdapterActividades(Actividades);
+        // luego se le manda el adatador al recycler
+        recycler.setAdapter(adapter);
+
+        //
+
+
         return  view;
     }
 

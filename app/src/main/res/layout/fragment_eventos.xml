@@ -74,10 +74,21 @@
         <ListView
             android:id="@+id/listView_eventos"
             android:layout_width="match_parent"
-            android:layout_height="470dp"
+            android:layout_height="200dp"
             android:layout_below="@+id/eventos"
 
             android:layout_marginTop="86dp"></ListView>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/Recycler_eventos"
+            android:layout_width="385dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/eventos"
+
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="297dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginRight="4dp" />
     </RelativeLayout>
 
 </FrameLayout>

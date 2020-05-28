@@ -84,39 +84,6 @@
             android:textSize="15sp"
             android:textStyle="bold" />
 
-        <ImageView
-            android:id="@+id/imagen_municipio"
-            android:layout_width="87dp"
-            android:layout_height="61dp"
-            android:layout_below="@+id/municipiobuscado"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="176dp"
-            android:layout_marginRight="176dp"
-            android:src="@drawable/ic_menu_gallery" />
-
-        <TextView
-            android:id="@+id/historia"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/imagen_municipio"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="190dp"
-            android:layout_marginRight="190dp"
-            android:text="Historia"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-
-        <ListView
-            android:id="@+id/listView_historia"
-            android:layout_width="389dp"
-            android:layout_height="56dp"
-            android:layout_below="@+id/historia"
-
-            ></ListView>
 
 
         <TextView
@@ -126,72 +93,19 @@
             android:text="Cultura"
             android:textSize="18sp"
             android:textStyle="bold" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/Recycler_cultura"
+            android:layout_width="385dp"
+            android:layout_height="500dp"
+            android:layout_below="@+id/municipiobuscado"
 
-        <TextView
-            android:id="@+id/leyendas"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/listView_historia"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="181dp"
-            android:layout_marginRight="181dp"
-            android:text="Leyendas"
-            android:textSize="15sp"
-            android:textStyle="bold" />
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginRight="4dp" />
 
-        <ListView
-            android:id="@+id/listView_leyendas"
-            android:layout_width="389dp"
-            android:layout_height="56dp"
-            android:layout_below="@+id/leyendas"
 
-            android:layout_marginTop="11dp"></ListView>
-
-        <TextView
-            android:id="@+id/junglares"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/listView_leyendas"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="14dp"
-            android:layout_marginEnd="188dp"
-            android:layout_marginRight="188dp"
-            android:text="Junglares"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-
-        <ListView
-            android:id="@+id/listView_junglares"
-            android:layout_width="389dp"
-            android:layout_height="56dp"
-            android:layout_below="@+id/junglares"
-
-            android:layout_marginTop="7dp"></ListView>
-
-        <TextView
-            android:id="@+id/musica"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/listView_junglares"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="9dp"
-            android:layout_marginEnd="186dp"
-            android:layout_marginRight="186dp"
-            android:text="Musica Tipica"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-
-        <ListView
-            android:id="@+id/listView_musica"
-            android:layout_width="389dp"
-            android:layout_height="56dp"
-            android:layout_below="@+id/musica"
-
-            android:layout_marginTop="7dp"></ListView>
 
 
     </RelativeLayout>
