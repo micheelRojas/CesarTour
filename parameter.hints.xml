@@ -3,6 +3,7 @@
     <blacklists>
       <blacklist language="Java">
         <added pattern="android.content.Intent.Intent(action,uri,packageContext,cls)" />
+        <added pattern="androidx.recyclerview.widget.LinearLayoutManager.LinearLayoutManager(context)" />
       </blacklist>
     </blacklists>
   </component>
