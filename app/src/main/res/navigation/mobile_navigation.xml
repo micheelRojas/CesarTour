@@ -8,27 +8,27 @@
 
     <fragment
         android:id="@+id/nav_cultura"
-        android:name="com.example.cesartour.CulturaFragment"
+        android:name="com.example.cesartour.Presentacion.CulturaFragment"
         android:label="Cultura"
         tools:layout="@layout/fragment_cultura" />
     <fragment
         android:id="@+id/nav_eventos"
-        android:name="com.example.cesartour.EventosFragment"
+        android:name="com.example.cesartour.Presentacion.EventosFragment"
         android:label="Eventos"
         tools:layout="@layout/fragment_eventos" />
     <fragment
         android:id="@+id/nav_actividades"
-        android:name="com.example.cesartour.ActividadesFragment"
+        android:name="com.example.cesartour.Presentacion.ActividadesFragment"
         android:label="Actividades"
         tools:layout="@layout/fragment_actividades" />
     <fragment
         android:id="@+id/nav_sitio"
-        android:name="com.example.cesartour.SitioFragment"
+        android:name="com.example.cesartour.Presentacion.SitioFragment"
         android:label="Sitios de interes"
         tools:layout="@layout/fragment_sitio" />
     <fragment
         android:id="@+id/nav_municipio"
-        android:name="com.example.cesartour.MunicipioFragment"
+        android:name="com.example.cesartour.Presentacion.MunicipioFragment"
         android:label="Municipio"
         tools:layout="@layout/fragment_municipio" />
 

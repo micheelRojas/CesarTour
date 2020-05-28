@@ -1,4 +1,4 @@
-package com.example.cesartour.Adatadores_Recycler;
+package com.example.cesartour.Presentacion.Adatadores_Recycler;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,16 +8,16 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.cesartour.Entity.Actividad;
+import com.example.cesartour.Entity.Evento;
 import com.example.cesartour.R;
 
 import java.util.ArrayList;
 
-public class AdapterActividades extends RecyclerView.Adapter<AdapterActividades.ViewHolderDatos> implements View.OnClickListener {
-    ArrayList<Actividad> Actividades;
+public class AdapterEventos extends RecyclerView.Adapter<AdapterEventos.ViewHolderDatos> implements View.OnClickListener  {
+    ArrayList<Evento> Eventos;
     private View.OnClickListener listener;
-    public AdapterActividades(ArrayList<Actividad> actividades) {
-        this.Actividades = actividades;
+    public AdapterEventos(ArrayList<Evento> eventos) {
+        this.Eventos = eventos;
     }
 
     @Override
@@ -29,15 +29,16 @@ public class AdapterActividades extends RecyclerView.Adapter<AdapterActividades.
 
     @Override
     public void onBindViewHolder(ViewHolderDatos holder, int position) {
-        holder.categoria.setText(Actividades.get(position).getCategoria().toString());
-        holder.nombre.setText(Actividades.get(position).getNombre());
-        holder.foto.setImageResource(Actividades.get(position).getImageActividad());
+
+        holder.nombre.setText(Eventos.get(position).getNombre());
+        holder.municipio.setText(Eventos.get(position).getMunicipio().toString());
+        holder.foto.setImageResource(Eventos.get(position).getImageEvento());
     }
 
     @Override
     public int getItemCount() {
 
-        return Actividades.size();
+        return Eventos.size();
     }
     public  void setOnClickListener(View.OnClickListener listener){
         this.listener= listener;
@@ -52,13 +53,13 @@ public class AdapterActividades extends RecyclerView.Adapter<AdapterActividades.
     }
 
     public class ViewHolderDatos extends RecyclerView.ViewHolder {
-        TextView categoria;
+        TextView municipio;
         TextView nombre;
         ImageView foto;
         public ViewHolderDatos(View itemView) {
             super(itemView);
-            categoria= itemView.findViewById(R.id.textview_campo1);
-            nombre= itemView.findViewById(R.id.textview_campo2);
+            municipio= itemView.findViewById(R.id.textview_campo2);
+            nombre= itemView.findViewById(R.id.textview_campo1);
             foto= itemView.findViewById(R.id.imageView_foto);
 
         }

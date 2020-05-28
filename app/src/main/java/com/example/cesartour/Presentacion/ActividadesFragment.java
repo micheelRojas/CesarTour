@@ -1,4 +1,4 @@
-package com.example.cesartour;
+package com.example.cesartour.Presentacion;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,11 +16,10 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.cesartour.Adatadores_Recycler.AdapterActividades;
+import com.example.cesartour.Presentacion.Adatadores_Recycler.AdapterActividades;
 import com.example.cesartour.BLL.ActividadService;
-import com.example.cesartour.BLL.SitioService;
 import com.example.cesartour.Entity.Actividad;
-import com.example.cesartour.Entity.Sitio;
+import com.example.cesartour.R;
 
 import java.io.IOException;
 import java.util.ArrayList;

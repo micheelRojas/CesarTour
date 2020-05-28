@@ -1,9 +1,7 @@
-package com.example.cesartour;
+package com.example.cesartour.Presentacion;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,23 +10,19 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.cesartour.Adatadores_Recycler.AdapterEventos;
-import com.example.cesartour.Adatadores_Recycler.AdapterSitios;
+import com.example.cesartour.Presentacion.Adatadores_Recycler.AdapterSitios;
 import com.example.cesartour.BLL.SitioService;
-import com.example.cesartour.Entity.Evento;
 import com.example.cesartour.Entity.Sitio;
+import com.example.cesartour.R;
 
 import java.io.IOException;
 import java.util.ArrayList;
-
-import static android.content.ContentValues.TAG;
 
 public class SitioFragment extends Fragment {
 

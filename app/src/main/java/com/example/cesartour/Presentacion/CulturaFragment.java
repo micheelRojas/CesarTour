@@ -1,10 +1,7 @@
-package com.example.cesartour;
+package com.example.cesartour.Presentacion;
 
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 
-import androidx.core.graphics.drawable.RoundedBitmapDrawable;
-import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,12 +9,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
-import com.example.cesartour.Adatadores_Recycler.AdapterActividades;
-import com.example.cesartour.Adatadores_Recycler.AdapterCultura;
-import com.example.cesartour.Entity.Actividad;
+import com.example.cesartour.Presentacion.Adatadores_Recycler.AdapterCultura;
 import com.example.cesartour.Entity.Cultura;
+import com.example.cesartour.R;
 
 import java.util.ArrayList;
 

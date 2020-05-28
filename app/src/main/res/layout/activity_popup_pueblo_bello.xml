@@ -5,7 +5,7 @@
     android:layout_width="300dp"
     android:layout_gravity="center"
     android:layout_height="300dp"
-    tools:context=".PopupMunicipio.Popup_pueblo_bello"
+    tools:context=".Presentacion.PopupMunicipio.Popup_pueblo_bello"
     android:padding="16dp"
     android:background="@color/popup">
     <ImageView

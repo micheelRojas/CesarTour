@@ -1,10 +1,12 @@
-package com.example.cesartour;
+package com.example.cesartour.Presentacion;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
+
+import com.example.cesartour.R;
 
 public class Detalles extends AppCompatActivity {
     private TextView mDescription;

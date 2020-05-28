@@ -1,4 +1,4 @@
-package com.example.cesartour;
+package com.example.cesartour.Presentacion;
 
 import android.app.Activity;
 import android.content.Context;
@@ -11,8 +11,9 @@ import android.widget.ImageButton;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import com.example.cesartour.PopupMunicipio.PopupValledupar;
-import com.example.cesartour.interfaces.iComunicaFragments;
+import com.example.cesartour.Presentacion.PopupMunicipio.PopupValledupar;
+import com.example.cesartour.R;
+import com.example.cesartour.Presentacion.interfaces.iComunicaFragments;
 
 
 public class MunicipioFragment extends Fragment {

@@ -1,4 +1,4 @@
-package com.example.cesartour.Adatadores_Recycler;
+package com.example.cesartour.Presentacion.Adatadores_Recycler;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cesartour.Entity.Cultura;
-import com.example.cesartour.Entity.Sitio;
 import com.example.cesartour.R;
 
 import java.util.ArrayList;

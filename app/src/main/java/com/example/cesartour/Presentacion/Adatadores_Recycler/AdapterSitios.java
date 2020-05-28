@@ -1,4 +1,4 @@
-package com.example.cesartour.Adatadores_Recycler;
+package com.example.cesartour.Presentacion.Adatadores_Recycler;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -6,40 +6,42 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.cesartour.Entity.Actividad;
-import com.example.cesartour.Entity.Evento;
+import com.example.cesartour.Entity.Sitio;
 import com.example.cesartour.R;
 
 import java.util.ArrayList;
 
-public class AdapterEventos extends RecyclerView.Adapter<AdapterEventos.ViewHolderDatos> implements View.OnClickListener  {
-    ArrayList<Evento> Eventos;
+public class AdapterSitios extends RecyclerView.Adapter<AdapterSitios.ViewHolderDatos> implements View.OnClickListener {
+    ArrayList<Sitio> Sitios;
     private View.OnClickListener listener;
-    public AdapterEventos(ArrayList<Evento> eventos) {
-        this.Eventos = eventos;
+    public AdapterSitios(ArrayList<Sitio> sitios) {
+        this.Sitios = sitios;
     }
 
+
+    @NonNull
     @Override
-    public ViewHolderDatos onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolderDatos onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View  view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list,null,false);
         view.setOnClickListener(this);
         return new ViewHolderDatos(view);
     }
 
     @Override
-    public void onBindViewHolder(ViewHolderDatos holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolderDatos holder, int position) {
 
-        holder.nombre.setText(Eventos.get(position).getNombre());
-        holder.municipio.setText(Eventos.get(position).getMunicipio().toString());
-        holder.foto.setImageResource(Eventos.get(position).getImageEvento());
+        holder.categoria.setText(Sitios.get(position).getCategoria().toString());
+        holder.nombre.setText(Sitios.get(position).getNombre());
+        holder.foto.setImageResource(Sitios.get(position).getImageSitio());
     }
 
     @Override
     public int getItemCount() {
 
-        return Eventos.size();
+        return Sitios.size();
     }
     public  void setOnClickListener(View.OnClickListener listener){
         this.listener= listener;
@@ -54,13 +56,13 @@ public class AdapterEventos extends RecyclerView.Adapter<AdapterEventos.ViewHold
     }
 
     public class ViewHolderDatos extends RecyclerView.ViewHolder {
-        TextView municipio;
+        TextView categoria;
         TextView nombre;
         ImageView foto;
         public ViewHolderDatos(View itemView) {
             super(itemView);
-            municipio= itemView.findViewById(R.id.textview_campo2);
-            nombre= itemView.findViewById(R.id.textview_campo1);
+            categoria= itemView.findViewById(R.id.textview_campo1);
+            nombre= itemView.findViewById(R.id.textview_campo2);
             foto= itemView.findViewById(R.id.imageView_foto);
 
         }

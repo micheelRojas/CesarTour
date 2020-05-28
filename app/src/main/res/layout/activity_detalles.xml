@@ -8,7 +8,7 @@
     android:layout_gravity="center"
     android:layout_height="wrap_content"
     android:background="#86D0FF9A"
-    tools:context=".Detalles">
+    tools:context=".Presentacion.Detalles">
 
         <TextView
             android:id="@+id/textView_Category2"
