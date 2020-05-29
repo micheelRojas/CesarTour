@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
 
+import com.example.cesartour.DAL.ConexionSQLiteHelper_Actividad;
+import com.example.cesartour.DAL.ConexionSQLiteHelper_Evento;
+import com.example.cesartour.DAL.ConexionSQLiteHelper_Sitio;
 import com.example.cesartour.R;
 import com.example.cesartour.Presentacion.interfaces.iComunicaFragments;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -28,7 +31,11 @@ public class MainActivity extends AppCompatActivity implements iComunicaFragment
     //EventosFragment popupValledupar;
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
-
+// lo de la base de datos
+ConexionSQLiteHelper_Sitio conexionSitio;
+ConexionSQLiteHelper_Actividad conexionActividad;
+ConexionSQLiteHelper_Evento conexionEvento;
+//
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +65,13 @@ public class MainActivity extends AppCompatActivity implements iComunicaFragment
         NavigationUI.setupWithNavController(navigationView, navController);
 
          dialog = new Dialog(this);
+
+//aqui instancio tas conexiones de la base de datos, recuerda que cuando la vallas a utilizar, simpte debe tener eso parametros
+        //sobre todo el nombre
+        conexionEvento =new ConexionSQLiteHelper_Evento(this, "db_eventos",null,1);
+        conexionActividad = new ConexionSQLiteHelper_Actividad(this,"db_actividades",null,1);
+        conexionSitio = new ConexionSQLiteHelper_Sitio(this,"db_sitios",null,1);
+    //
     }
 
     @Override
