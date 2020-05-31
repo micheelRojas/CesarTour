@@ -8,7 +8,17 @@ public class Cultura implements Serializable {
     private int codigo;
     private String nombre;
     private String tipo;
+    private String descripcion;
+    private String municipio;
     private  int imageCultura;
+
+    public String getMunicipio() {
+        return municipio;
+    }
+
+    public void setMunicipio(String municipio) {
+        this.municipio = municipio;
+    }
 
     public int getCodigo() {
         return codigo;
@@ -33,6 +43,15 @@ public class Cultura implements Serializable {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
     public int getImageCultura() {
         return imageCultura;
     }

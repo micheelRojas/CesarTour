@@ -7,9 +7,7 @@
     tools:context=".Presentacion.CulturaFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+
 
 
     <RelativeLayout
@@ -93,21 +91,17 @@
             android:text="Cultura"
             android:textSize="18sp"
             android:textStyle="bold" />
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/Recycler_cultura"
-            android:layout_width="385dp"
-            android:layout_height="500dp"
-            android:layout_below="@+id/municipiobuscado"
 
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="4dp"
-            android:layout_marginRight="4dp" />
+        <ListView
+            android:id="@+id/listView_culturas"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@+id/actividades_Buscadas"
 
+            android:layout_marginTop="150dp">
 
+        </ListView>
 
 
     </RelativeLayout>
-    </ScrollView>
 </FrameLayout>

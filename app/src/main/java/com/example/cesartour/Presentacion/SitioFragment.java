@@ -170,10 +170,10 @@ public class SitioFragment extends Fragment {
         });
     }
 
-   private void SiteSelected(String id, ArrayList<Sitio> sitioList){
+    private void SiteSelected(String id, ArrayList<Sitio> sitioList){
         Sitio sitio = new Sitio();
 
-       int Id = Integer.parseInt(id);
+        int Id = Integer.parseInt(id);
         for (Sitio item: sitioList) {
             if(item.getCodigo() == Id){
                 sitio.setCodigo(item.getCodigo());

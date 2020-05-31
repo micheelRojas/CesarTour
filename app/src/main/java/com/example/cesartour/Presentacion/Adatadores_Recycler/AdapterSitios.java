@@ -33,7 +33,7 @@ public class AdapterSitios extends RecyclerView.Adapter<AdapterSitios.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull ViewHolderDatos holder, int position) {
 
-        holder.categoria.setText(Sitios.get(position).getCategoria().toString());
+        holder.categoria.setText(Sitios.get(position).getCategoria());
         holder.nombre.setText(Sitios.get(position).getNombre());
         holder.foto.setImageResource(Sitios.get(position).getImageSitio());
     }
@@ -64,7 +64,6 @@ public class AdapterSitios extends RecyclerView.Adapter<AdapterSitios.ViewHolder
             categoria= itemView.findViewById(R.id.textview_campo1);
             nombre= itemView.findViewById(R.id.textview_campo2);
             foto= itemView.findViewById(R.id.imageView_foto);
-
         }
 
 
