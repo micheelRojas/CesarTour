@@ -35,6 +35,8 @@ public class EventosFragment extends Fragment {
     // lo del recycler
     ArrayList<Evento> Eventos;
     RecyclerView recycler;
+    AdapterEventos adapterEventos;
+    Evento evento;
 //
 
     @Override
@@ -65,19 +67,23 @@ public class EventosFragment extends Fragment {
 
         Eventos= new ArrayList<>();
         recycler= view.findViewById(R.id.Recycler_eventos);
-        //el tipo de recycler
-        recycler.setLayoutManager(new LinearLayoutManager(getContext()));
-        //Aqui deberia seer llamado el metodo  de llenadao, aunque no se como lo quieras hacer
-        //llenarRecycler();
-        // aqui se le manda la lista de eventos  al adatador No olvides que aun no se a llenado
-        AdapterEventos adapter = new AdapterEventos(Eventos);
-        // luego se le manda el adatador al recycler
-        recycler.setAdapter(adapter);
+     cargarDatos();
+     mostrarDatos();
+
 
         //
         return  view;
     }
-
+    public  void cargarDatos(){
+        Eventos.add(new Evento("Festival","Valledupar",R.drawable.valledupar));
+        Eventos.add(new Evento("Feria del parque","Valledupar",R.drawable.pueblo_bello));
+        Eventos.add(new Evento("Feria del dulce","Valledupar",R.drawable.manaure));
+    }
+    public void mostrarDatos(){
+        recycler.setLayoutManager(new LinearLayoutManager(getContext()));
+        adapterEventos = new AdapterEventos(getContext(),Eventos);
+        recycler.setAdapter(adapterEventos);
+    }
     private void crearSpinners(Spinner municipioSpinner){
 
         ArrayList<String> municipioSpinnerList = new ArrayList<>();
