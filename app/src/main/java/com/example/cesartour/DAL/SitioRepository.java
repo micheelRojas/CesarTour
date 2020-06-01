@@ -49,7 +49,7 @@ public class SitioRepository {
                 sitio.setDireccion(valores[3]);
                 sitio.setDescripcion(valores[4]);
                 sitio.setMunicipio(valores[5]);
-                
+
                 sitios.add(sitio);
 
                 String dateSitios = sitio.getNombre() + "\n" + sitio.getCategoria();
