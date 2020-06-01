@@ -17,6 +17,17 @@ public class Evento implements Serializable {
 
     // esta es la que debe ir
     private  int imageEvento;
+
+    public Evento() {
+
+    }
+
+    public Evento(String nombre, String municipio, int imageEvento) {
+        this.nombre = nombre;
+        this.municipio = municipio;
+        this.imageEvento = imageEvento;
+    }
+
     public int getImageEvento() {
         return imageEvento;
     }

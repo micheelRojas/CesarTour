@@ -15,40 +15,43 @@
         >
 
 
-
         <ImageView
-            android:padding="2dp"
             android:id="@+id/imageView_foto"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_weight="1"
-            android:background="@drawable/cerclebackanground"
-            app:srcCompat="@android:mipmap/sym_def_app_icon" />
+            android:layout_width="78dp"
+            android:layout_height="78dp"
 
+            android:padding="2dp"
+            android:src="@drawable/valledupar"
 
-            <LinearLayout
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+            />
 
-                <TextView
-                    android:id="@+id/textview_campo1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:hint="Campo1"
-                    android:padding="4dp"
-                    android:textSize="15dp"
-                    android:textStyle="bold" />
+        <LinearLayout
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"/>
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/textview_campo2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:hint="Campo2"
-                    android:padding="4dp"
-                    android:textSize="15dp"
-                    android:textStyle="bold" />
-            </LinearLayout>
+            <TextView
+                android:id="@+id/textview_campo1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Campo1"
+                android:padding="4dp"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textview_campo2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Campo2"
+                android:padding="4dp"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
 
     </LinearLayout>
