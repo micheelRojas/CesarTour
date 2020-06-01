@@ -4,7 +4,9 @@ import android.content.Context;
 import android.widget.ListView;
 
 
+import com.example.cesartour.Entity.Imagen;
 import com.example.cesartour.Entity.Sitio;
+import com.example.cesartour.Presentacion.MainActivity;
 import com.example.cesartour.R;
 
 import java.io.BufferedReader;
@@ -47,6 +49,7 @@ public class SitioRepository {
                 sitio.setDireccion(valores[3]);
                 sitio.setDescripcion(valores[4]);
                 sitio.setMunicipio(valores[5]);
+                
                 sitios.add(sitio);
 
                 String dateSitios = sitio.getNombre() + "\n" + sitio.getCategoria();

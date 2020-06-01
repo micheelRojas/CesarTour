@@ -13,7 +13,7 @@ public class Sitio implements Serializable {
     private String municipio;
     //esta se debe quitar
 
-    private ImageView imageView;
+    private int imageView;
 
     // esta es la que debe  ir
     private int imageSitio;
@@ -27,11 +27,11 @@ public class Sitio implements Serializable {
     }
 
 
-    public ImageView getImageView() {
+    public int getImageView() {
         return imageView;
     }
 
-    public void setImageView(ImageView imageView) {
+    public void setImageView(int imageView) {
         this.imageView = imageView;
     }
 

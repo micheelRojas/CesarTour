@@ -8,6 +8,7 @@ import android.view.Menu;
 import com.example.cesartour.DAL.ConexionSQLiteHelper_Actividad;
 import com.example.cesartour.DAL.ConexionSQLiteHelper_Evento;
 import com.example.cesartour.DAL.ConexionSQLiteHelper_Sitio;
+import com.example.cesartour.Entity.Imagen;
 import com.example.cesartour.R;
 import com.example.cesartour.Presentacion.interfaces.iComunicaFragments;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -24,7 +25,10 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity implements iComunicaFragments {
+
 
     private AppBarConfiguration mAppBarConfiguration;
     Dialog dialog;
