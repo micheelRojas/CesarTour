@@ -16,9 +16,11 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.cesartour.Entity.Cultura;
 import com.example.cesartour.Presentacion.Adatadores_Recycler.AdapterActividades;
 import com.example.cesartour.BLL.ActividadService;
 import com.example.cesartour.Entity.Actividad;
+import com.example.cesartour.Presentacion.Adatadores_Recycler.AdapterCultura;
 import com.example.cesartour.R;
 
 import java.io.IOException;
@@ -35,7 +37,8 @@ public class ActividadesFragment extends Fragment {
     ArrayAdapter adapter;
     // lo del recycler
     ArrayList<Actividad> Actividades;
-    RecyclerView recycler;
+    RecyclerView recyclerActividad;
+    AdapterActividades adapterActividades;
 //
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -59,26 +62,35 @@ public class ActividadesFragment extends Fragment {
                 filter();
             }
         });
-        //pongo esto aqui como guia si lo haces diferente no hay problema
+
         // lo del recycler
 
         Actividades= new ArrayList<>();
-        recycler= view.findViewById(R.id.Recycler_actividades);
-        //el tipo de recycler
-        recycler.setLayoutManager(new LinearLayoutManager(getContext()));
-        //Aqui deberia seer llamado el metodo  de llenadao, aunque no se como lo quieras hacer
-        //llenarRecycler();
-        // aqui se le manda la lista de actividades  al adatador No olvides que aun no se a llenado
-        AdapterActividades adapter = new AdapterActividades(Actividades);
-        // luego se le manda el adatador al recycler
-        recycler.setAdapter(adapter);
+        recyclerActividad= view.findViewById(R.id.Recycler_actividades);
+        cargarDatos();
+        mostrarDatos();
+
 
         //
 
 
         return  view;
     }
+    public  void cargarDatos(){
+        Actividades.add(new Actividad("Pedregoza","piscina",R.drawable.valledupar));
+        Actividades.add(new Actividad("Parapente manaure","Parapente",R.drawable.manaure));
+        Actividades.add(new Actividad("Avistamiento de aves","Avez",R.drawable.valledupar));
+        Actividades.add(new Actividad("Museo del acordeon","Museo",R.drawable.valledupar));
 
+
+
+
+    }
+    public void mostrarDatos(){
+        recyclerActividad.setLayoutManager(new LinearLayoutManager(getContext()));
+        adapterActividades = new AdapterActividades(getContext(),Actividades);
+        recyclerActividad.setAdapter(adapterActividades);
+    }
     private void crearSpinners(Spinner categoriaSpinner, Spinner municipioSpinner){
         ArrayList<String> categoriaSpinnerList = new ArrayList<>();
         categoriaSpinnerList.add("Todas");

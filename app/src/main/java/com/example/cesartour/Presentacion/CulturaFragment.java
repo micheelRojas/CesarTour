@@ -20,9 +20,11 @@ import android.widget.Toast;
 import com.example.cesartour.BLL.ActividadService;
 import com.example.cesartour.BLL.CulturaService;
 import com.example.cesartour.Entity.Actividad;
+import com.example.cesartour.Entity.Evento;
 import com.example.cesartour.Presentacion.Adatadores_Recycler.AdapterActividades;
 import com.example.cesartour.Presentacion.Adatadores_Recycler.AdapterCultura;
 import com.example.cesartour.Entity.Cultura;
+import com.example.cesartour.Presentacion.Adatadores_Recycler.AdapterEventos;
 import com.example.cesartour.R;
 
 import java.io.IOException;
@@ -39,7 +41,8 @@ public class CulturaFragment extends Fragment {
     ArrayAdapter adapter;
     // lo del recycler
     ArrayList<Cultura> Culturas;
-    RecyclerView recycler;
+    RecyclerView recyclerCultura;
+   AdapterCultura adapterCultura;
     //
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -53,7 +56,7 @@ public class CulturaFragment extends Fragment {
         municipioSpinner = (Spinner) view.findViewById(R.id.spinner_Municipio);
         crearSpinners(categoriaSpinner, municipioSpinner);
 
-        try{
+        /*try{
             displayDatabaseInfoText();
         }catch(IOException e){}
         buttonFilter.setOnClickListener(new View.OnClickListener() {
@@ -61,11 +64,28 @@ public class CulturaFragment extends Fragment {
             public void onClick(View v) {
                 filter();
             }
-        });
+        });*/
+        // lo del recycler
 
+        Culturas= new ArrayList<>();
+        recyclerCultura= view.findViewById(R.id.Recycler_cultura);
+        cargarDatos();
+        mostrarDatos();
+
+
+        //
         return view;
     }
-
+    public  void cargarDatos(){
+       Culturas.add(new Cultura("Sirena del rio","Leyenda",R.drawable.valledupar));
+        Culturas.add(new Cultura("Vallenato","Musica",R.drawable.valledupar));
+        Culturas.add(new Cultura("El monte","Junglar",R.drawable.valledupar));
+    }
+    public void mostrarDatos(){
+        recyclerCultura.setLayoutManager(new LinearLayoutManager(getContext()));
+        adapterCultura = new AdapterCultura(getContext(),Culturas);
+        recyclerCultura.setAdapter(adapterCultura);
+    }
     private void crearSpinners(Spinner categoriaSpinner, Spinner municipioSpinner){
         ArrayList<String> categoriaSpinnerList = new ArrayList<>();
         categoriaSpinnerList.add("Todas");

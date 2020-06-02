@@ -16,6 +16,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.cesartour.Entity.Cultura;
+import com.example.cesartour.Presentacion.Adatadores_Recycler.AdapterCultura;
 import com.example.cesartour.Presentacion.Adatadores_Recycler.AdapterSitios;
 import com.example.cesartour.BLL.SitioService;
 import com.example.cesartour.Entity.Sitio;
@@ -36,7 +38,8 @@ public class SitioFragment extends Fragment {
     ArrayAdapter adapter;
     // lo del recycler
     ArrayList<Sitio> Sitios;
-    RecyclerView recycler;
+    RecyclerView recyclerSitio;
+    AdapterSitios adapterSitios;
     //
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -60,23 +63,27 @@ public class SitioFragment extends Fragment {
                 filter();
             }
         });
-        //pongo esto aqui como guia si lo haces diferente no hay problema
         // lo del recycler
 
         Sitios= new ArrayList<>();
-        recycler= view.findViewById(R.id.Recycler_sitios);
-        //el tipo de recycler
-        recycler.setLayoutManager(new LinearLayoutManager(getContext()));
-        //Aqui deberia seer llamado el metodo  de llenadao, aunque no se como lo quieras hacer
-        //llenarRecycler();
-        // aqui se le manda la lista de sitios  al adatador No olvides que aun no se a llenado
-        AdapterSitios adapter = new AdapterSitios(Sitios);
-        // luego se le manda el adatador al recycler
-        recycler.setAdapter(adapter);
+        recyclerSitio= view.findViewById(R.id.Recycler_sitios);
+        cargarDatos();
+        mostrarDatos();
+
 
         //
 
         return  view;
+    }
+    public  void cargarDatos(){
+        Sitios.add(new Sitio("Rio la mesa","Baleneario",R.drawable.manaure));
+        Sitios.add(new Sitio("Pimienta y sazon ","Restaurante",R.drawable.valledupar));
+        Sitios.add(new Sitio("Rio Guatapuri","Baleneario",R.drawable.valledupar));
+    }
+    public void mostrarDatos(){
+        recyclerSitio.setLayoutManager(new LinearLayoutManager(getContext()));
+        adapterSitios = new AdapterSitios(getContext(),Sitios);
+        recyclerSitio.setAdapter(adapterSitios);
     }
 
     private void crearSpinners(Spinner categoriaSpinner, Spinner municipioSpinner){
