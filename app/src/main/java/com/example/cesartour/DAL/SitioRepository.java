@@ -4,9 +4,7 @@ import android.content.Context;
 import android.widget.ListView;
 
 
-import com.example.cesartour.Entity.Imagen;
 import com.example.cesartour.Entity.Sitio;
-import com.example.cesartour.Presentacion.MainActivity;
 import com.example.cesartour.R;
 
 import java.io.BufferedReader;

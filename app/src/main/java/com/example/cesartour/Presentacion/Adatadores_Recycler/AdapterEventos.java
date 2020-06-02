@@ -34,7 +34,7 @@ public class AdapterEventos extends RecyclerView.Adapter<AdapterEventos.ViewHold
     public void onBindViewHolder(ViewHolderDatos holder, int position) {
 
         holder.nombre.setText(Eventos.get(position).getNombre());
-        holder.municipio.setText(Eventos.get(position).getMunicipio().toString());
+        holder.municipio.setText(Eventos.get(position).getMunicipio());
         holder.foto.setImageResource(Eventos.get(position).getImageEvento());
     }
 

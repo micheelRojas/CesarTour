@@ -1,10 +1,10 @@
 package com.example.cesartour.Entity;
 
-public class Imagen {
+public class ImagenEvento {
     private int Codigo;
     private int Imagen;
 
-    public Imagen(int codigo, int imagen) {
+    public ImagenEvento(int codigo, int imagen) {
         Codigo = codigo;
         Imagen = imagen;
     }

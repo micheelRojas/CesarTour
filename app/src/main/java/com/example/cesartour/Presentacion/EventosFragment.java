@@ -36,7 +36,7 @@ public class EventosFragment extends Fragment {
     ArrayList<Evento> Eventos;
     RecyclerView recycler;
     AdapterEventos adapterEventos;
-    Evento evento;
+    //Evento evento;
 //
 
     @Override
@@ -46,6 +46,7 @@ public class EventosFragment extends Fragment {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_eventos, container, false);
         listView_eventos = (ListView) view.findViewById(R.id.listView_eventos);
+        eventoList = new ArrayList<>();
 
         buttonFilter =  view.findViewById(R.id.buttonFilter);
         municipioSpinner = (Spinner) view.findViewById(R.id.spinner_Municipio);
@@ -67,8 +68,9 @@ public class EventosFragment extends Fragment {
 
         Eventos= new ArrayList<>();
         recycler= view.findViewById(R.id.Recycler_eventos);
-     cargarDatos();
-     mostrarDatos();
+        recycler.setLayoutManager(new LinearLayoutManager(getContext()));
+        //cargarDatos();
+        //mostrarDatos();
 
 
         //
@@ -132,7 +134,7 @@ public class EventosFragment extends Fragment {
 
     }
 
-    private void displayDatabaseInfoText() throws IOException {
+    /*private void displayDatabaseInfoText() throws IOException {
         EventoService eventoService = new EventoService(this.getContext());
 
         eventoList = eventoService.displayDatabaseInfoText();
@@ -155,7 +157,31 @@ public class EventosFragment extends Fragment {
                 Selected(idList.get(i), eventoList);
             }
         });
+    }*/
+    private void displayDatabaseInfoText() throws IOException {
+        EventoService eventoService = new EventoService(this.getContext());
+
+
+        eventoList = eventoService.displayDatabaseInfoText();
+        idList = new ArrayList<>();
+        ArrayList<String> listEventos = new ArrayList<>();
+
+
+        for(Evento item: eventoList){
+            Evento evento = new Evento();
+            evento.setNombre(item.getNombre());
+            evento.setMunicipio(item.getMunicipio());
+            evento.setImageEvento(item.getImageEvento());
+            Eventos.add(evento);
+
+            idList.add(item.getCodigo()+"");
+        }
+
+        adapterEventos = new AdapterEventos(getContext(),Eventos);
+        recycler.setAdapter(adapterEventos);
+
     }
+
 
     private void Selected(String id, ArrayList<Evento> eventoList){
         Evento evento = new Evento();

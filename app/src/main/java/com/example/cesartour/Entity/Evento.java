@@ -10,10 +10,6 @@ public class Evento implements Serializable {
     private String municipio;
     private String fecha;
     private String descripcion;
-    //esta se debe quitar
-    private ImageView imageView;
-
-
 
     // esta es la que debe ir
     private  int imageEvento;
@@ -74,13 +70,5 @@ public class Evento implements Serializable {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
-    }
-
-    public ImageView getImageView() {
-        return imageView;
-    }
-
-    public void setImageView(ImageView imageView) {
-        this.imageView = imageView;
     }
 }
