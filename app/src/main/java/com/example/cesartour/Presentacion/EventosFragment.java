@@ -90,6 +90,9 @@ public class EventosFragment extends Fragment {
         municipioSpinnerList.add("Valledupar");
         municipioSpinnerList.add("Bosconia");
         municipioSpinnerList.add("Manaure");
+        municipioSpinnerList.add("Aguachica");
+        municipioSpinnerList.add("Pueblo Bello");
+        municipioSpinnerList.add("Chimichagua");
         final ArrayAdapter<String> municipioAdapter = new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_spinner_item,
                 municipioSpinnerList);
         municipioSpinner.setAdapter(municipioAdapter);

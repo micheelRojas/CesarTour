@@ -94,9 +94,12 @@ public class ActividadesFragment extends Fragment {
     private void crearSpinners(Spinner categoriaSpinner, Spinner municipioSpinner){
         ArrayList<String> categoriaSpinnerList = new ArrayList<>();
         categoriaSpinnerList.add("Todas");
-        categoriaSpinnerList.add("Paseo");
+        categoriaSpinnerList.add("Rios");
         categoriaSpinnerList.add("Parapente");
         categoriaSpinnerList.add("Caminata");
+        categoriaSpinnerList.add("Gastronomia");
+        categoriaSpinnerList.add("Avistamiento de aves");
+        categoriaSpinnerList.add("Canotaje");
         final ArrayAdapter<String> categoriaAdapter = new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_spinner_item,
                 categoriaSpinnerList);
         categoriaSpinner.setAdapter(categoriaAdapter);
@@ -105,6 +108,10 @@ public class ActividadesFragment extends Fragment {
         municipioSpinnerList.add("Todos");
         municipioSpinnerList.add("Valledupar");
         municipioSpinnerList.add("Manaure");
+        municipioSpinnerList.add("La Paz");
+        municipioSpinnerList.add("Chimichagua");
+        municipioSpinnerList.add("La Mina");
+        municipioSpinnerList.add("Patillal");
         final ArrayAdapter<String> municipioAdapter = new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_spinner_item,
                 municipioSpinnerList);
         municipioSpinner.setAdapter(municipioAdapter);

@@ -91,6 +91,7 @@ public class SitioFragment extends Fragment {
         categoriaSpinnerList.add("Todas");
         categoriaSpinnerList.add("Restaurante");
         categoriaSpinnerList.add("Hotel");
+        categoriaSpinnerList.add("Casa Campo");
         final ArrayAdapter<String> categoriaAdapter = new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_spinner_item,
                 categoriaSpinnerList);
         categoriaSpinner.setAdapter(categoriaAdapter);
@@ -99,6 +100,9 @@ public class SitioFragment extends Fragment {
         municipioSpinnerList.add("Todos");
         municipioSpinnerList.add("Valledupar");
         municipioSpinnerList.add("Manaure");
+        municipioSpinnerList.add("Bosconia");
+        municipioSpinnerList.add("Aguachica");
+        municipioSpinnerList.add("Chinichagua");
         final ArrayAdapter<String> municipioAdapter = new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_spinner_item,
                 municipioSpinnerList);
         municipioSpinner.setAdapter(municipioAdapter);
