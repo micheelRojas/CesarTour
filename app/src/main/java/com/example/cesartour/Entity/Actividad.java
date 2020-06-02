@@ -17,6 +17,16 @@ public class Actividad implements Serializable {
     // esta es la que debe ir
     private  int imageActividad;
 
+    public Actividad() {
+
+    }
+
+    public Actividad(String nombre, String categoria, int imageActividad) {
+        this.nombre = nombre;
+        this.categoria = categoria;
+        this.imageActividad = imageActividad;
+    }
+
     public int getImageActividad() {
         return imageActividad;
     }

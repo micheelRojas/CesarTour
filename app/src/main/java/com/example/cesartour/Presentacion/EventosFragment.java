@@ -34,9 +34,9 @@ public class EventosFragment extends Fragment {
     ArrayAdapter adapter;
     // lo del recycler
     ArrayList<Evento> Eventos;
-    RecyclerView recycler;
+    RecyclerView recyclerEventos;
     AdapterEventos adapterEventos;
-    Evento evento;
+
 //
 
     @Override
@@ -62,11 +62,10 @@ public class EventosFragment extends Fragment {
             }
         });
 
-        //pongo esto aqui como guia si lo haces diferente no hay problema
         // lo del recycler
 
         Eventos= new ArrayList<>();
-        recycler= view.findViewById(R.id.Recycler_eventos);
+        recyclerEventos= view.findViewById(R.id.Recycler_eventos);
      cargarDatos();
      mostrarDatos();
 
@@ -80,9 +79,9 @@ public class EventosFragment extends Fragment {
         Eventos.add(new Evento("Feria del dulce","Valledupar",R.drawable.manaure));
     }
     public void mostrarDatos(){
-        recycler.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerEventos.setLayoutManager(new LinearLayoutManager(getContext()));
         adapterEventos = new AdapterEventos(getContext(),Eventos);
-        recycler.setAdapter(adapterEventos);
+        recyclerEventos.setAdapter(adapterEventos);
     }
     private void crearSpinners(Spinner municipioSpinner){
 

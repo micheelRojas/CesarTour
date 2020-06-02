@@ -12,6 +12,17 @@ public class Cultura implements Serializable {
     private String municipio;
     private  int imageCultura;
 
+    public Cultura() {
+
+    }
+
+    public Cultura(String nombre, String tipo, int imageCultura) {
+
+        this.nombre = nombre;
+        this.tipo = tipo;
+        this.imageCultura = imageCultura;
+    }
+
     public String getMunicipio() {
         return municipio;
     }

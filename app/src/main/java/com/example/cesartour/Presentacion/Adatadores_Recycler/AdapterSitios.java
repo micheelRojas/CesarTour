@@ -1,5 +1,6 @@
 package com.example.cesartour.Presentacion.Adatadores_Recycler;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,16 +17,19 @@ import java.util.ArrayList;
 
 public class AdapterSitios extends RecyclerView.Adapter<AdapterSitios.ViewHolderDatos> implements View.OnClickListener {
     ArrayList<Sitio> Sitios;
+    LayoutInflater inflater;
     private View.OnClickListener listener;
-    public AdapterSitios(ArrayList<Sitio> sitios) {
+    public AdapterSitios(Context context, ArrayList<Sitio> sitios) {
         this.Sitios = sitios;
+        this.inflater= LayoutInflater.from(context);
+
     }
 
 
     @NonNull
     @Override
     public ViewHolderDatos onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View  view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list,null,false);
+        View  view = inflater.inflate(R.layout.item_list,parent,false);
         view.setOnClickListener(this);
         return new ViewHolderDatos(view);
     }

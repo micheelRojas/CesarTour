@@ -18,6 +18,14 @@ public class Sitio implements Serializable {
     // esta es la que debe  ir
     private int imageSitio;
 
+    public Sitio(String nombre, String categoria,  int imageSitio) {
+        this.nombre = nombre;
+        this.categoria = categoria;
+        this.imageSitio = imageSitio;
+    }
+    public Sitio() {
+    }
+
     public int getImageSitio() {
         return imageSitio;
     }

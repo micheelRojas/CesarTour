@@ -1,5 +1,6 @@
 package com.example.cesartour.Presentacion.Adatadores_Recycler;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +18,9 @@ import java.util.ArrayList;
 public class AdapterCultura extends RecyclerView.Adapter<AdapterCultura.ViewHolderDatos> implements View.OnClickListener {
     ArrayList<Cultura> Culturas;
     private View.OnClickListener listener;
-    public AdapterCultura(ArrayList<Cultura> culturas) {
+    LayoutInflater inflater;
+    public AdapterCultura(Context context, ArrayList<Cultura> culturas) {
+        this.inflater= LayoutInflater.from(context);
         this.Culturas = culturas;
     }
 
@@ -32,7 +35,7 @@ public class AdapterCultura extends RecyclerView.Adapter<AdapterCultura.ViewHold
     @NonNull
     @Override
     public ViewHolderDatos onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View  view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list,null,false);
+        View  view = inflater.inflate(R.layout.item_list,parent,false);
         view.setOnClickListener(this);
         return new ViewHolderDatos(view);
     }
