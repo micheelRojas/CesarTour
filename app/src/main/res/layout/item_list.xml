@@ -3,15 +3,16 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     >
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@color/colorItem">
+        android:layout_height="75dp"
+        android:layout_margin="5dp"
+        android:background="@color/colorItem"
+        android:orientation="horizontal">
         >
 
 
@@ -19,7 +20,7 @@
             android:id="@+id/imageView_foto"
             android:layout_width="78dp"
             android:layout_height="78dp"
-            
+
             android:padding="2dp"
             android:src="@drawable/valledupar"
 
@@ -28,7 +29,8 @@
         <LinearLayout
             android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"/>
+            android:orientation="vertical" />
+
         <LinearLayout
             android:layout_width="300dp"
             android:layout_height="wrap_content"
@@ -36,7 +38,7 @@
 
             <TextView
                 android:id="@+id/textview_campo1"
-                android:layout_width="match_parent"
+                android:layout_width="240dp"
                 android:layout_height="match_parent"
                 android:hint="Campo1"
                 android:padding="4dp"
@@ -45,7 +47,7 @@
 
             <TextView
                 android:id="@+id/textview_campo2"
-                android:layout_width="match_parent"
+                android:layout_width="240dp"
                 android:layout_height="match_parent"
                 android:hint="Campo2"
                 android:padding="4dp"

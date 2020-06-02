@@ -44,8 +44,10 @@ public class EventosFragment extends Fragment {
 
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_eventos, container, false);
-        listView_eventos = (ListView) view.findViewById(R.id.listView_eventos);
-        eventoList = new ArrayList<>();
+        //listView_eventos = (ListView) view.findViewById(R.id.listView_eventos);
+
+        recyclerEventos= (RecyclerView) view.findViewById(R.id.Recycler_eventos);
+        Eventos= new ArrayList<>();
 
         buttonFilter =  view.findViewById(R.id.buttonFilter);
         municipioSpinner = (Spinner) view.findViewById(R.id.spinner_Municipio);
@@ -63,9 +65,6 @@ public class EventosFragment extends Fragment {
         });
 
         // lo del recycler
-
-        Eventos= new ArrayList<>();
-        recyclerEventos= view.findViewById(R.id.Recycler_eventos);
 
         //cargarDatos();
         //mostrarDatos();
@@ -105,26 +104,25 @@ public class EventosFragment extends Fragment {
         idList.clear();
         for (Evento item: eventoList) {
             if((item.getMunicipio().equals(municipio))){
-                String dateSitio = item.getNombre() + "\n" + item.getMunicipio();
-                listAuxiliar.add(dateSitio);
                 listAuxiliarEventos.add(item);
                 idList.add(item.getCodigo()+"");
             }else{
                 if(municipio.equals("Todos")){
-                    String dateSitio = item.getNombre() + "\n" + item.getMunicipio();
-                    listAuxiliar.add(dateSitio);
                     listAuxiliarEventos.add(item);
                     idList.add(item.getCodigo()+"");
                 }
             }
         }
-        adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, listAuxiliar);
-        listView_eventos.setAdapter(adapter);
-        listView_eventos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        recyclerEventos.setLayoutManager(new LinearLayoutManager(getContext()));
+        adapterEventos = new AdapterEventos(getContext(),listAuxiliarEventos);
+        recyclerEventos.setAdapter(adapterEventos);
+
+        adapterEventos.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(adapter.getContext(), "Detalles evento", Toast.LENGTH_SHORT).show();
-                Selected(idList.get(i), listAuxiliarEventos);
+            public void onClick(View view) {
+                Toast.makeText(getContext(), "Detalles evento", Toast.LENGTH_SHORT).show();
+                Selected(idList.get(recyclerEventos.getChildAdapterPosition(view)), Eventos);
+                //Toast.makeText(getApplicationContext(), "click in "+posicion, Toast.LENGTH_LONG).show();
             }
         });
 
@@ -157,18 +155,12 @@ public class EventosFragment extends Fragment {
     private void displayDatabaseInfoText() throws IOException {
         EventoService eventoService = new EventoService(this.getContext());
 
-
         eventoList = eventoService.displayDatabaseInfoText();
         idList = new ArrayList<>();
         ArrayList<String> listEventos = new ArrayList<>();
-
-
         for(Evento item: eventoList){
-            Evento evento = new Evento();
-            evento.setNombre(item.getNombre());
-            evento.setMunicipio(item.getMunicipio());
-            evento.setImageEvento(item.getImageEvento());
-            Eventos.add(evento);
+
+            Eventos.add(new Evento(item.getNombre(), item.getMunicipio(), item.getImageEvento()));
 
             idList.add(item.getCodigo()+"");
         }
@@ -177,6 +169,14 @@ public class EventosFragment extends Fragment {
         adapterEventos = new AdapterEventos(getContext(),Eventos);
         recyclerEventos.setAdapter(adapterEventos);
 
+        adapterEventos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //String posicion = RecyclerView.getChildAdapterPosition(v)+"";
+                Selected(idList.get(recyclerEventos.getChildAdapterPosition(view)), Eventos);
+                //Toast.makeText(getApplicationContext(), "click in "+posicion, Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
 

@@ -82,9 +82,6 @@ public class ActividadesFragment extends Fragment {
         Actividades.add(new Actividad("Avistamiento de aves","Avez",R.drawable.valledupar));
         Actividades.add(new Actividad("Museo del acordeon","Museo",R.drawable.valledupar));
 
-
-
-
     }
     public void mostrarDatos(){
         recyclerActividad.setLayoutManager(new LinearLayoutManager(getContext()));
