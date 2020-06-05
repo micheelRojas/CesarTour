@@ -25,6 +25,22 @@
             android:id="@+id/nav_municipio"
             android:icon="@drawable/municipio"
             android:title="Municipio" />
+        <item
+
+            android:title="--------------------------" />
+        <item
+            android:id="@+id/nav_mis_eventos"
+            android:icon="@drawable/calendario"
+            android:title="Mis Eventos" />
+        <item
+            android:id="@+id/nav_mis_actividades"
+            android:icon="@drawable/actividad"
+            android:title="Mis Actividades" />
+        <item
+            android:id="@+id/nav_mis_sitios"
+            android:icon="@drawable/sitio"
+            android:title="Mis Sitios" />
+
 
 
     </group>

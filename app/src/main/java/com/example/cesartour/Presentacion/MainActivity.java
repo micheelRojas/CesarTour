@@ -58,7 +58,9 @@ ConexionSQLiteHelper_Evento conexionEvento;
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_cultura,R.id.nav_eventos,R.id.nav_actividades,
-                R.id.nav_sitio,R.id.nav_municipio)
+                R.id.nav_sitio,R.id.nav_municipio,R.id.nav_mis_eventos,R.id.nav_mis_actividades,
+                R.id.nav_mis_sitios
+        )
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);

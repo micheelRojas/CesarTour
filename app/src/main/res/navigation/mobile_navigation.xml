@@ -31,6 +31,21 @@
         android:name="com.example.cesartour.Presentacion.MunicipioFragment"
         android:label="Municipio"
         tools:layout="@layout/fragment_municipio" />
+    <fragment
+        android:id="@+id/nav_mis_eventos"
+        android:name="com.example.cesartour.Presentacion.MisEventosFragment"
+        android:label="Mis Eventos"
+        tools:layout="@layout/fragment_mis_eventos" />
+    <fragment
+        android:id="@+id/nav_mis_actividades"
+        android:name="com.example.cesartour.Presentacion.MisActividadesFragment"
+        android:label="Mis Actividades"
+        tools:layout="@layout/fragment_mis_actividades" />
+    <fragment
+        android:id="@+id/nav_mis_sitios"
+        android:name="com.example.cesartour.Presentacion.MisSitiosFragment"
+        android:label="Mis Sitios"
+        tools:layout="@layout/fragment_mis_sitios" />
 
 
 </navigation>
