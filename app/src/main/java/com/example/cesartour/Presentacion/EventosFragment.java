@@ -121,7 +121,7 @@ public class EventosFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getContext(), "Detalles evento", Toast.LENGTH_SHORT).show();
-                Selected(idList.get(recyclerEventos.getChildAdapterPosition(view)), Eventos);
+                Selected(idList.get(recyclerEventos.getChildAdapterPosition(view)), eventoList);
                 //Toast.makeText(getApplicationContext(), "click in "+posicion, Toast.LENGTH_LONG).show();
             }
         });
@@ -173,7 +173,7 @@ public class EventosFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 //String posicion = RecyclerView.getChildAdapterPosition(v)+"";
-                Selected(idList.get(recyclerEventos.getChildAdapterPosition(view)), Eventos);
+                Selected(idList.get(recyclerEventos.getChildAdapterPosition(view)), eventoList);
                 //Toast.makeText(getApplicationContext(), "click in "+posicion, Toast.LENGTH_LONG).show();
             }
         });
@@ -196,8 +196,8 @@ public class EventosFragment extends Fragment {
         }
 
         Intent intent = new Intent(this.getActivity(), Detalles.class);
-        String idActividad = Integer.toString(evento.getCodigo());
-        intent.putExtra("id", idActividad);
+        String idEvento = Integer.toString(evento.getCodigo());
+        intent.putExtra("id", idEvento);
         intent.putExtra("nombre", evento.getNombre());
         intent.putExtra("fecha", evento.getFecha());
         intent.putExtra("descripcion", evento.getDescripcion());
