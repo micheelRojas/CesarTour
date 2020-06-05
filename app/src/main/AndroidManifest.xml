@@ -17,7 +17,7 @@
             android:theme="@style/AppTheme.TemaPopup"/>
 
         <activity android:name=".Presentacion.Detalles"
-            android:theme="@style/AppTheme.TemaPopup"></activity>
+            ></activity>
 
         <activity
             android:name=".Presentacion.PopupMunicipio.PopupValledupar"
