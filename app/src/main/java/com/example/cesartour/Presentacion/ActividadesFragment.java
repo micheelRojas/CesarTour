@@ -21,6 +21,7 @@ import com.example.cesartour.Presentacion.Adatadores_Recycler.AdapterActividades
 import com.example.cesartour.BLL.ActividadService;
 import com.example.cesartour.Entity.Actividad;
 import com.example.cesartour.Presentacion.Adatadores_Recycler.AdapterCultura;
+import com.example.cesartour.Presentacion.Adatadores_Recycler.AdapterSitios;
 import com.example.cesartour.R;
 
 import java.io.IOException;
@@ -46,7 +47,10 @@ public class ActividadesFragment extends Fragment {
 
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_actividades, container, false);
-        listView_actividades = (ListView) view.findViewById(R.id.listView_actividades);
+        //listView_actividades = (ListView) view.findViewById(R.id.listView_actividades);
+
+        recyclerActividad= view.findViewById(R.id.Recycler_actividades);
+        Actividades= new ArrayList<>();
 
         buttonFilter =  view.findViewById(R.id.buttonFilter);
         categoriaSpinner = (Spinner) view.findViewById(R.id.spinner_actividad);
@@ -64,13 +68,8 @@ public class ActividadesFragment extends Fragment {
         });
 
         // lo del recycler
-
-        Actividades= new ArrayList<>();
-        recyclerActividad= view.findViewById(R.id.Recycler_actividades);
-        cargarDatos();
-        mostrarDatos();
-
-
+        //cargarDatos();
+        //mostrarDatos();
         //
 
 
@@ -123,26 +122,18 @@ public class ActividadesFragment extends Fragment {
         idList.clear();
         for (Actividad item: actividadList) {
             if((item.getCategoria().equals(categoria)) && (item.getMunicipio().equals(municipio))){
-                String dateSitio = item.getCategoria() + "\n" + item.getNombre();
-                listAuxiliar.add(dateSitio);
                 listAuxiliarActividades.add(item);
                 idList.add(item.getCodigo()+"");
             }else{
                 if(categoria.equals("Todas") && item.getMunicipio().equals(municipio)){
-                    String dateSitio = item.getCategoria() + "\n" + item.getNombre();
-                    listAuxiliar.add(dateSitio);
                     listAuxiliarActividades.add(item);
                     idList.add(item.getCodigo()+"");
                 }else{
                     if(item.getCategoria().equals(categoria) && municipio.equals("Todos")){
-                        String dateSitio = item.getCategoria() + "\n" + item.getNombre();
-                        listAuxiliar.add(dateSitio);
                         listAuxiliarActividades.add(item);
                         idList.add(item.getCodigo()+"");
                     }else{
                         if(categoria.equals("Todas") && municipio.equals("Todos")) {
-                            String dateSitio = item.getCategoria() + "\n" + item.getNombre();
-                            listAuxiliar.add(dateSitio);
                             listAuxiliarActividades.add(item);
                             idList.add(item.getCodigo()+"");
                         }
@@ -150,17 +141,19 @@ public class ActividadesFragment extends Fragment {
                 }
             }
         }
-        adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, listAuxiliar);
-        listView_actividades.setAdapter(adapter);
 
-        listView_actividades.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        recyclerActividad.setLayoutManager(new LinearLayoutManager(getContext()));
+        adapterActividades = new AdapterActividades(getContext(),listAuxiliarActividades);
+        recyclerActividad.setAdapter(adapterActividades);
+
+        adapterActividades.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(adapter.getContext(), "Detalles actividad", Toast.LENGTH_SHORT).show();
-                Selected(idList.get(i), actividadList);
+            public void onClick(View view) {
+                Toast.makeText(getContext(), "Detalles cultura", Toast.LENGTH_SHORT).show();
+                Selected(idList.get(recyclerActividad.getChildAdapterPosition(view)), actividadList);
+                //Toast.makeText(getApplicationContext(), "click in "+posicion, Toast.LENGTH_LONG).show();
             }
         });
-
     }
 
     private void displayDatabaseInfoText() throws IOException {
@@ -171,18 +164,20 @@ public class ActividadesFragment extends Fragment {
         ArrayList<String> listActividades = new ArrayList<>();
 
         for(Actividad item: actividadList){
-            String dateActividad = item.getCategoria() + "\n" + item.getNombre();
-            listActividades.add(dateActividad);
+            Actividades.add(new Actividad(item.getNombre(), item.getCategoria(), item.getImageActividad()));
             idList.add(item.getCodigo()+"");
         }
-        adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, listActividades);
-        listView_actividades.setAdapter(adapter);
 
-        listView_actividades.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        recyclerActividad.setLayoutManager(new LinearLayoutManager(getContext()));
+        adapterActividades = new AdapterActividades(getContext(),Actividades);
+        recyclerActividad.setAdapter(adapterActividades);
+
+        adapterActividades.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(adapter.getContext(), "Detalles actividad", Toast.LENGTH_SHORT).show();
-                Selected(idList.get(i), actividadList);
+            public void onClick(View view) {
+                //String posicion = RecyclerView.getChildAdapterPosition(v)+"";
+                Selected(idList.get(recyclerActividad.getChildAdapterPosition(view)), actividadList);
+                //Toast.makeText(getApplicationContext(), "click in "+posicion, Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -199,6 +194,7 @@ public class ActividadesFragment extends Fragment {
                 actividad.setNombre(item.getNombre());
                 actividad.setDescripcion(item.getDescripcion());
                 actividad.setMunicipio(item.getMunicipio());
+                actividad.setImageActividad(item.getImageActividad());
             }
         }
 
@@ -209,6 +205,7 @@ public class ActividadesFragment extends Fragment {
         intent.putExtra("categoria", actividad.getCategoria());
         intent.putExtra("descripcion", actividad.getDescripcion());
         intent.putExtra("municipio", actividad.getMunicipio());
+        intent.putExtra("imagen", Integer.toString(actividad.getImageActividad()));
 
         startActivity(intent);
     }

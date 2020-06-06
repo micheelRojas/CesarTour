@@ -4,6 +4,8 @@ import android.content.Context;
 import android.widget.ListView;
 
 import com.example.cesartour.Entity.Actividad;
+import com.example.cesartour.Entity.ImagenActividad;
+import com.example.cesartour.Entity.ImagenSitio;
 import com.example.cesartour.Entity.Sitio;
 import com.example.cesartour.R;
 
@@ -19,6 +21,8 @@ public class ActividadRepository {
     private ArrayList<Actividad> actividades = new ArrayList<>();;
     private Context context;
 
+    private ArrayList<ImagenActividad> imagenes;
+
     public ActividadRepository(Context contexto){
         this.context = contexto;
     }
@@ -28,6 +32,20 @@ public class ActividadRepository {
         BufferedReader comodo;
         idList = new ArrayList<String>();
         actividadList = new ArrayList<String>();
+
+        imagenes = new ArrayList<>();
+        imagenes.add(new ImagenActividad(0, R.drawable.actrioguatapuri));
+        imagenes.add(new ImagenActividad(1, R.drawable.actparapentemanaure));
+        imagenes.add(new ImagenActividad(2, R.drawable.actcaminatamanaure));
+        imagenes.add(new ImagenActividad(3, R.drawable.actcaminatavalledupar));
+        imagenes.add(new ImagenActividad(4, R.drawable.actcaminatamanaureladanta));
+        imagenes.add(new ImagenActividad(5, R.drawable.actcomervalledupar));
+        imagenes.add(new ImagenActividad(6, R.drawable.actcomeralmojabanas));
+        imagenes.add(new ImagenActividad(7, R.drawable.actavistamientodeaves));
+        imagenes.add(new ImagenActividad(8, R.drawable.actnavegarzapatosa));
+        imagenes.add(new ImagenActividad(9, R.drawable.actbalneariolamina));
+        imagenes.add(new ImagenActividad(10, R.drawable.actriobadillo));
+
 
         try {
             comodo = new BufferedReader(new InputStreamReader(archivo));
@@ -42,11 +60,13 @@ public class ActividadRepository {
                 actividad.setCategoria(valores[2]);
                 actividad.setMunicipio(valores[3]);
                 actividad.setDescripcion(valores[4]);
-                actividades.add(actividad);
+                for (ImagenActividad item: imagenes) {
+                    if(item.getCodigo() == actividad.getCodigo()){
+                        actividad.setImageActividad(item.getImagen());
+                    }
+                }
 
-                String dateActividades = actividad.getCategoria() + "\n" + actividad.getNombre();
-                actividadList.add(dateActividades);
-                idList.add(actividad.getCodigo()+"");
+                actividades.add(actividad);
             }
         } catch (Exception e) {
 

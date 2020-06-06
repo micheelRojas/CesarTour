@@ -49,14 +49,17 @@ public class CulturaFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =inflater.inflate(R.layout.fragment_cultura, container, false);
-        listView_culturas = (ListView) view.findViewById(R.id.listView_culturas);
+        //listView_culturas = (ListView) view.findViewById(R.id.listView_culturas);
+
+        recyclerCultura= view.findViewById(R.id.Recycler_cultura);
+        Culturas= new ArrayList<>();
 
         buttonFilter =  view.findViewById(R.id.buttonFilter);
         categoriaSpinner = (Spinner) view.findViewById(R.id.spinner_categoria);
         municipioSpinner = (Spinner) view.findViewById(R.id.spinner_Municipio);
         crearSpinners(categoriaSpinner, municipioSpinner);
 
-        /*try{
+        try{
             displayDatabaseInfoText();
         }catch(IOException e){}
         buttonFilter.setOnClickListener(new View.OnClickListener() {
@@ -64,15 +67,10 @@ public class CulturaFragment extends Fragment {
             public void onClick(View v) {
                 filter();
             }
-        });*/
+        });
         // lo del recycler
-
-        Culturas= new ArrayList<>();
-        recyclerCultura= view.findViewById(R.id.Recycler_cultura);
-        cargarDatos();
-        mostrarDatos();
-
-
+        //cargarDatos();
+        //mostrarDatos();
         //
         return view;
     }
@@ -92,6 +90,7 @@ public class CulturaFragment extends Fragment {
         categoriaSpinnerList.add("Cancion");
         categoriaSpinnerList.add("Leyenda");
         categoriaSpinnerList.add("Mito");
+        categoriaSpinnerList.add("Musico");
         final ArrayAdapter<String> categoriaAdapter = new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_spinner_item,
                 categoriaSpinnerList);
         categoriaSpinner.setAdapter(categoriaAdapter);
@@ -99,7 +98,10 @@ public class CulturaFragment extends Fragment {
         ArrayList<String> municipioSpinnerList = new ArrayList<>();
         municipioSpinnerList.add("Todos");
         municipioSpinnerList.add("Valledupar");
-        municipioSpinnerList.add("Manaure");
+        municipioSpinnerList.add("El Paso");
+        municipioSpinnerList.add("Tamalameque");
+        municipioSpinnerList.add("La Paz");
+        municipioSpinnerList.add("Codazzi");
         final ArrayAdapter<String> municipioAdapter = new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_spinner_item,
                 municipioSpinnerList);
         municipioSpinner.setAdapter(municipioAdapter);
@@ -114,26 +116,18 @@ public class CulturaFragment extends Fragment {
         idList.clear();
         for (Cultura item: culturaList) {
             if((item.getTipo().equals(categoria)) && (item.getMunicipio().equals(municipio))){
-                String dateSitio = item.getTipo() + "\n" + item.getNombre();
-                listAuxiliar.add(dateSitio);
                 listAuxiliarCultura.add(item);
                 idList.add(item.getCodigo()+"");
             }else{
                 if(categoria.equals("Todas") && item.getMunicipio().equals(municipio)){
-                    String dateSitio = item.getTipo() + "\n" + item.getNombre();
-                    listAuxiliar.add(dateSitio);
                     listAuxiliarCultura.add(item);
                     idList.add(item.getCodigo()+"");
                 }else{
                     if(item.getTipo().equals(categoria) && municipio.equals("Todos")){
-                        String dateSitio = item.getTipo() + "\n" + item.getNombre();
-                        listAuxiliar.add(dateSitio);
                         listAuxiliarCultura.add(item);
                         idList.add(item.getCodigo()+"");
                     }else{
                         if(categoria.equals("Todas") && municipio.equals("Todos")) {
-                            String dateSitio = item.getTipo() + "\n" + item.getNombre();
-                            listAuxiliar.add(dateSitio);
                             listAuxiliarCultura.add(item);
                             idList.add(item.getCodigo()+"");
                         }
@@ -141,14 +135,17 @@ public class CulturaFragment extends Fragment {
                 }
             }
         }
-        adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, listAuxiliar);
-        listView_culturas.setAdapter(adapter);
 
-        listView_culturas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        recyclerCultura.setLayoutManager(new LinearLayoutManager(getContext()));
+        adapterCultura = new AdapterCultura(getContext(),listAuxiliarCultura);
+        recyclerCultura.setAdapter(adapterCultura);
+
+        adapterCultura.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(adapter.getContext(), "Detalles actividad", Toast.LENGTH_SHORT).show();
-                Selected(idList.get(i), culturaList);
+            public void onClick(View view) {
+                Toast.makeText(getContext(), "Detalles actividad", Toast.LENGTH_SHORT).show();
+                Selected(idList.get(recyclerCultura.getChildAdapterPosition(view)), culturaList);
+                //Toast.makeText(getApplicationContext(), "click in "+posicion, Toast.LENGTH_LONG).show();
             }
         });
 
@@ -162,18 +159,19 @@ public class CulturaFragment extends Fragment {
         ArrayList<String> listCulturas = new ArrayList<>();
 
         for(Cultura item: culturaList){
-            String dateCultura = item.getTipo() + "\n" + item.getNombre();
-            listCulturas.add(dateCultura);
+            Culturas.add(new Cultura(item.getNombre(), item.getTipo(), item.getImageCultura()));
             idList.add(item.getCodigo()+"");
         }
-        adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, listCulturas);
-        listView_culturas.setAdapter(adapter);
+        recyclerCultura.setLayoutManager(new LinearLayoutManager(getContext()));
+        adapterCultura = new AdapterCultura(getContext(),Culturas);
+        recyclerCultura.setAdapter(adapterCultura);
 
-        listView_culturas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        adapterCultura.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(adapter.getContext(), "Detalles actividad", Toast.LENGTH_SHORT).show();
-                Selected(idList.get(i), culturaList);
+            public void onClick(View view) {
+                //String posicion = RecyclerView.getChildAdapterPosition(v)+"";
+                Selected(idList.get(recyclerCultura.getChildAdapterPosition(view)), culturaList);
+                //Toast.makeText(getApplicationContext(), "click in "+posicion, Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -190,6 +188,7 @@ public class CulturaFragment extends Fragment {
                 cultura.setNombre(item.getNombre());
                 cultura.setDescripcion(item.getDescripcion());
                 cultura.setMunicipio(item.getMunicipio());
+                cultura.setImageCultura(item.getImageCultura());
             }
         }
 
@@ -200,6 +199,7 @@ public class CulturaFragment extends Fragment {
         intent.putExtra("categoria", cultura.getTipo());
         intent.putExtra("descripcion", cultura.getDescripcion());
         intent.putExtra("municipio", cultura.getMunicipio());
+        intent.putExtra("imagen", Integer.toString(cultura.getImageCultura()));
 
         startActivity(intent);
     }

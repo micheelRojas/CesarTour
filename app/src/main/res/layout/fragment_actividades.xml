@@ -96,26 +96,17 @@
         android:textSize="15sp"
         android:textStyle="bold" />
 
-        <ListView
-            android:id="@+id/listView_actividades"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_below="@+id/actividades_Buscadas"
-
-            android:layout_marginTop="55dp">
-
-        </ListView>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/Recycler_actividades"
-            android:layout_width="385dp"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="468dp"
             android:layout_below="@+id/actividades_Buscadas"
 
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="297dp"
-            android:layout_marginEnd="4dp"
-            android:layout_marginRight="4dp" />
+            android:layout_marginTop="63dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginRight="0dp" />
 
     </RelativeLayout>
 

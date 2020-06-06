@@ -10,9 +10,6 @@ public class Actividad implements Serializable {
     private String categoria;
     private String descripcion;
     private String municipio;
-    //quitar esta
-    private ImageView imageView;
-
 
     // esta es la que debe ir
     private  int imageActividad;
@@ -74,13 +71,5 @@ public class Actividad implements Serializable {
 
     public void setMunicipio(String municipio) {
         this.municipio = municipio;
-    }
-
-    public ImageView getImageView() {
-        return imageView;
-    }
-
-    public void setImageView(ImageView imageView) {
-        this.imageView = imageView;
     }
 }
