@@ -4,6 +4,8 @@ import android.content.Context;
 import android.widget.ListView;
 
 
+import com.example.cesartour.Entity.ImagenEvento;
+import com.example.cesartour.Entity.ImagenSitio;
 import com.example.cesartour.Entity.Sitio;
 import com.example.cesartour.R;
 
@@ -23,6 +25,8 @@ public class SitioRepository {
     private ArrayList<Sitio> sitios = new ArrayList<>();;
     private Context context;
 
+    private ArrayList<ImagenSitio> imagenes;
+
     public SitioRepository(Context contexto){
         this.context = contexto;
     }
@@ -32,6 +36,18 @@ public class SitioRepository {
         BufferedReader comodo;
         idList = new ArrayList<String>();
         sitioList = new ArrayList<String>();
+
+        imagenes = new ArrayList<>();
+        imagenes.add(new ImagenSitio(0, R.drawable.slasierra));
+        imagenes.add(new ImagenSitio(1, R.drawable.sitiosonesta));
+        imagenes.add(new ImagenSitio(2, R.drawable.sitiokasvel));
+        imagenes.add(new ImagenSitio(3, R.drawable.sitioelgordosaul));
+        imagenes.add(new ImagenSitio(4, R.drawable.sitioeltucan));
+        imagenes.add(new ImagenSitio(5, R.drawable.sitiobrasamanaurera));
+        imagenes.add(new ImagenSitio(6, R.drawable.sitiobosconiaimperial));
+        imagenes.add(new ImagenSitio(7, R.drawable.sitiojorlin));
+        imagenes.add(new ImagenSitio(8, R.drawable.sitiolabrasa));
+
 
         try {
             comodo = new BufferedReader(new InputStreamReader(archivo));
@@ -47,12 +63,13 @@ public class SitioRepository {
                 sitio.setDireccion(valores[3]);
                 sitio.setDescripcion(valores[4]);
                 sitio.setMunicipio(valores[5]);
+                for (ImagenSitio item: imagenes) {
+                    if(item.getCodigo() == sitio.getCodigo()){
+                        sitio.setImageSitio(item.getImagen());
+                    }
+                }
 
                 sitios.add(sitio);
-
-                String dateSitios = sitio.getNombre() + "\n" + sitio.getCategoria();
-                sitioList.add(dateSitios);
-                idList.add(sitio.getCodigo()+"");
             }
         } catch (Exception e) {
 

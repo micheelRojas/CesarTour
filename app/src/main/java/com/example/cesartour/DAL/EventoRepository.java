@@ -33,16 +33,16 @@ public class EventoRepository {
         eventoList = new ArrayList<String>();
 
         imagenes = new ArrayList<>();
-        imagenes.add(new ImagenEvento(0, R.drawable.valledupar));
-        imagenes.add(new ImagenEvento(1, R.drawable.pueblo_bello));
-        imagenes.add(new ImagenEvento(2, R.drawable.manaure));
-        imagenes.add(new ImagenEvento(3, R.drawable.valledupar));
-        imagenes.add(new ImagenEvento(4, R.drawable.pueblo_bello));
-        imagenes.add(new ImagenEvento(5, R.drawable.manaure));
-        imagenes.add(new ImagenEvento(6, R.drawable.valledupar));
-        imagenes.add(new ImagenEvento(7, R.drawable.pueblo_bello));
-        imagenes.add(new ImagenEvento(8, R.drawable.manaure));
-        imagenes.add(new ImagenEvento(9, R.drawable.manaure));
+        imagenes.add(new ImagenEvento(0, R.drawable.festivalvallenato));
+        imagenes.add(new ImagenEvento(1, R.drawable.fiestasanjuanbosco));
+        imagenes.add(new ImagenEvento(2, R.drawable.fiestavirgendelcarmen));
+        imagenes.add(new ImagenEvento(3, R.drawable.festivaldelaquinta));
+        imagenes.add(new ImagenEvento(4, R.drawable.vallenatoenvivo));
+        imagenes.add(new ImagenEvento(5, R.drawable.fiestadesanroque));
+        imagenes.add(new ImagenEvento(6, R.drawable.fiestavirgendelcarmen));
+        imagenes.add(new ImagenEvento(7, R.drawable.fiestadechimichagua));
+        imagenes.add(new ImagenEvento(8, R.drawable.fiestadesantarita));
+        imagenes.add(new ImagenEvento(9, R.drawable.cumplebosconia));
 
         try {
             comodo = new BufferedReader(new InputStreamReader(archivo));

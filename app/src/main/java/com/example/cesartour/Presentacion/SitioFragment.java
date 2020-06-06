@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cesartour.Entity.Cultura;
 import com.example.cesartour.Presentacion.Adatadores_Recycler.AdapterCultura;
+import com.example.cesartour.Presentacion.Adatadores_Recycler.AdapterEventos;
 import com.example.cesartour.Presentacion.Adatadores_Recycler.AdapterSitios;
 import com.example.cesartour.BLL.SitioService;
 import com.example.cesartour.Entity.Sitio;
@@ -47,7 +48,10 @@ public class SitioFragment extends Fragment {
 
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_sitio, container, false);
-        listView_sitios = (ListView) view.findViewById(R.id.listView_sitios);
+        //listView_sitios = (ListView) view.findViewById(R.id.listView_sitios);
+
+        recyclerSitio= view.findViewById(R.id.Recycler_sitios);
+        Sitios= new ArrayList<>();
 
         buttonFilter =  view.findViewById(R.id.buttonFilter);
         categoriaSpinner = (Spinner) view.findViewById(R.id.spinner_tipo);
@@ -65,12 +69,8 @@ public class SitioFragment extends Fragment {
         });
         // lo del recycler
 
-        Sitios= new ArrayList<>();
-        recyclerSitio= view.findViewById(R.id.Recycler_sitios);
-        cargarDatos();
-        mostrarDatos();
-
-
+        //cargarDatos();
+        //mostrarDatos();
         //
 
         return  view;
@@ -117,26 +117,18 @@ public class SitioFragment extends Fragment {
         idList.clear();
         for (Sitio item: sitioList) {
             if((item.getCategoria().equals(categoria)) && (item.getMunicipio().equals(municipio))){
-                String dateSitio = item.getCategoria() + "\n" + item.getNombre();
-                listAuxiliar.add(dateSitio);
                 listAuxiliarSitios.add(item);
                 idList.add(item.getCodigo()+"");
             }else{
                 if(categoria.equals("Todas") && item.getMunicipio().equals(municipio)){
-                    String dateSitio = item.getCategoria() + "\n" + item.getNombre();
-                    listAuxiliar.add(dateSitio);
                     listAuxiliarSitios.add(item);
                     idList.add(item.getCodigo()+"");
                 }else{
                     if(item.getCategoria().equals(categoria) && municipio.equals("Todos")){
-                        String dateSitio = item.getCategoria() + "\n" + item.getNombre();
-                        listAuxiliar.add(dateSitio);
                         listAuxiliarSitios.add(item);
                         idList.add(item.getCodigo()+"");
                     }else{
                         if(categoria.equals("Todas") && municipio.equals("Todos")) {
-                            String dateSitio = item.getCategoria() + "\n" + item.getNombre();
-                            listAuxiliar.add(dateSitio);
                             listAuxiliarSitios.add(item);
                             idList.add(item.getCodigo()+"");
                         }
@@ -145,15 +137,19 @@ public class SitioFragment extends Fragment {
             }
         }
 
-        adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, listAuxiliar);
-        listView_sitios.setAdapter(adapter);
-        listView_sitios.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        recyclerSitio.setLayoutManager(new LinearLayoutManager(getContext()));
+        adapterSitios = new AdapterSitios(getContext(),listAuxiliarSitios);
+        recyclerSitio.setAdapter(adapterSitios);
+
+        adapterSitios.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(adapter.getContext(), "Detalles sitio", Toast.LENGTH_SHORT).show();
-                SiteSelected(idList.get(i), listAuxiliarSitios);
+            public void onClick(View view) {
+                Toast.makeText(getContext(), "Detalles sitio", Toast.LENGTH_SHORT).show();
+                SiteSelected(idList.get(recyclerSitio.getChildAdapterPosition(view)), sitioList);
+                //Toast.makeText(getApplicationContext(), "click in "+posicion, Toast.LENGTH_LONG).show();
             }
         });
+
     }
 
     private void displayDatabaseInfoText() throws IOException {
@@ -164,19 +160,20 @@ public class SitioFragment extends Fragment {
         ArrayList<String> listSitios = new ArrayList<>();
 
         for(Sitio item: sitioList){
-            String dateSitio = item.getCategoria() + "\n" + item.getNombre();
-            listSitios.add(dateSitio);
+            Sitios.add(new Sitio(item.getNombre(), item.getCategoria(), item.getImageSitio()));
             idList.add(item.getCodigo()+"");
         }
 
-        adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, listSitios);
-        listView_sitios.setAdapter(adapter);
+        recyclerSitio.setLayoutManager(new LinearLayoutManager(getContext()));
+        adapterSitios = new AdapterSitios(getContext(),Sitios);
+        recyclerSitio.setAdapter(adapterSitios);
 
-        listView_sitios.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        adapterSitios.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(adapter.getContext(), "Detalles sitio", Toast.LENGTH_SHORT).show();
-                SiteSelected(idList.get(i), sitioList);
+            public void onClick(View view) {
+                //String posicion = RecyclerView.getChildAdapterPosition(v)+"";
+                SiteSelected(idList.get(recyclerSitio.getChildAdapterPosition(view)), sitioList);
+                //Toast.makeText(getApplicationContext(), "click in "+posicion, Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -193,6 +190,7 @@ public class SitioFragment extends Fragment {
                 sitio.setDescripcion(item.getDescripcion());
                 sitio.setDireccion(item.getDireccion());
                 sitio.setMunicipio(item.getMunicipio());
+                sitio.setImageSitio(item.getImageSitio());
             }
         }
 
@@ -204,6 +202,7 @@ public class SitioFragment extends Fragment {
         intent.putExtra("descripcion", sitio.getDescripcion());
         intent.putExtra("direccion", sitio.getDireccion());
         intent.putExtra("municipio", sitio.getMunicipio());
+        intent.putExtra("imagen", Integer.toString(sitio.getImageSitio()));
 
         startActivity(intent);
     }

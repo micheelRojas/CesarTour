@@ -10,6 +10,12 @@
     android:background="#86D0FF9A"
     tools:context=".Presentacion.Detalles">
 
+        <ImageView
+            android:id="@+id/imageView_foto"
+            android:layout_width="320dp"
+            android:layout_height="150dp"
+            />
+
         <TextView
             android:id="@+id/textView_Category2"
             android:gravity="center"
@@ -34,16 +40,19 @@
             android:text="@string/description"
             android:padding="10dp"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content" />
+            android:layout_width="wrap_content"
+            android:scrollbars="vertical"
+            />
+
         <Button
             android:id="@+id/registrarMis"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Registrar Mis"
-            android:textStyle="bold"
+            android:layout_marginLeft="150dp"
             android:background="@drawable/cerclebackanground"
             android:backgroundTint="@color/popup"
-            android:layout_marginLeft="150dp"
+            android:text="Registrar Mis"
+            android:textStyle="bold"
 
             />
 

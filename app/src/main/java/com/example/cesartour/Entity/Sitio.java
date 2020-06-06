@@ -13,8 +13,6 @@ public class Sitio implements Serializable {
     private String municipio;
     //esta se debe quitar
 
-    private int imageView;
-
     // esta es la que debe  ir
     private int imageSitio;
 
@@ -32,15 +30,6 @@ public class Sitio implements Serializable {
 
     public void setImageSitio(int imageSitio) {
         this.imageSitio = imageSitio;
-    }
-
-
-    public int getImageView() {
-        return imageView;
-    }
-
-    public void setImageView(int imageView) {
-        this.imageView = imageView;
     }
 
     public int getCodigo() {
