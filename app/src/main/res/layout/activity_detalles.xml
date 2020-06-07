@@ -7,11 +7,14 @@
     android:layout_width="match_parent"
     android:layout_gravity="center"
     android:layout_height="match_parent"
-    android:background="#86D0FF9A"
+    android:background="@drawable/coloritem"
     tools:context=".Presentacion.Detalles">
 
         <ImageView
             android:id="@+id/imageView_foto"
+            android:layout_marginTop="5dp"
+            android:padding="2dp"
+            android:layout_marginLeft="35dp"
             android:layout_width="320dp"
             android:layout_height="150dp"
             />
@@ -39,7 +42,7 @@
             android:gravity="center"
             android:text="@string/description"
             android:padding="10dp"
-            android:layout_height="wrap_content"
+            android:layout_height="200dp"
             android:layout_width="wrap_content"
             android:scrollbars="vertical"
             />
@@ -49,8 +52,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="150dp"
-            android:background="@drawable/cerclebackanground"
-            android:backgroundTint="@color/popup"
+            android:textColor="@color/black"
+
             android:text="Registrar Mis"
             android:textStyle="bold"
 

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:shape="oval"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="75dp"
+    android:layout_height="75dp"
+    >
+    <stroke android:width="2dp"
+        android:color="@color/boton" />
+    <gradient
+        android:angle="90"
+        android:centerColor="#BFFDFFFC"
+        android:endColor="#D3D8CC"
+        android:startColor="#DDF4DD"
+        android:gradientRadius="@dimen/cardview_compat_inset_shadow"/>
+
+</shape>

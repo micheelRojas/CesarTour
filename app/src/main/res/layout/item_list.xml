@@ -9,14 +9,15 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="75dp"
+        android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:background="@color/colorItem"
+     android:background="@color/white"
         android:orientation="horizontal">
         >
 
 
         <ImageView
+            android:layout_marginLeft="10dp"
             android:id="@+id/imageView_foto"
             android:layout_width="78dp"
             android:layout_height="78dp"
@@ -26,35 +27,37 @@
 
             />
 
-        <LinearLayout
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
+
 
         <LinearLayout
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/coloritem">
 
             <TextView
                 android:id="@+id/textview_campo1"
                 android:layout_width="240dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:hint="Campo1"
                 android:padding="4dp"
-                android:textSize="15dp"
-                android:textStyle="bold" />
+                android:textSize="18dp"
+                android:fontFamily="@font/amel"
+                android:textColor="@color/black"
+              />
 
             <TextView
                 android:id="@+id/textview_campo2"
                 android:layout_width="240dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:hint="Campo2"
-                android:padding="4dp"
-                android:textSize="15dp"
-                android:textStyle="bold" />
+                android:textColor="@color/black"
+                android:padding="1dp"
+                android:textSize="18dp"
+              android:fontFamily="@font/amel" />
         </LinearLayout>
 
-
     </LinearLayout>
+
 </LinearLayout>

@@ -3,92 +3,107 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Presentacion.CulturaFragment">
+    android:background="@drawable/calendariofondo"
 
+    tools:context=".Presentacion.CulturaFragment"
+    >
+    <!--derechos de la imagen de fondo link: https://image.freepik.com/vector-gratis/concepto-gestion-tiempo-landing-page_52683-12192.jpg-->
     <!-- TODO: Update blank fragment layout -->
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_horizontal"
-            android:text="Calendario de eventos"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-        <TextView
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="44dp"
-            android:layout_marginLeft="44dp"
-            android:layout_marginTop="40dp"
-            android:text="Municipio"
-            android:textSize="15sp"
-            android:textStyle="bold" />
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
-        <Spinner
-            android:id="@+id/spinner_Municipio"
-            android:layout_width="205dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="150dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="31dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="15dp"
-            android:spinnerMode="dropdown" />
-
-        <Button
-            android:id="@+id/buttonFilter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="109dp"
-
-            android:layout_marginLeft="109dp"
-            android:layout_marginTop="131dp"
-            android:text="@string/button_filter" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="Calendario de eventos"
+                    android:layout_marginLeft="80dp"
+                    android:textColor="@color/black"
+                    android:padding="2dp"
+                    android:textSize="25dp"
+                    android:fontFamily="@font/days_later"
+                 />
 
 
-        <TextView
-            android:id="@+id/eventos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Municipio: "
+                        android:textColor="@color/black"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:textSize="15sp"
+                        android:fontFamily="serif"/>
 
-            android:layout_marginTop="82dp"
-            android:layout_marginEnd="175dp"
-            android:layout_marginRight="175dp"
-            android:gravity="center_horizontal"
-            android:text="Eventos"
-            android:textSize="15sp"
-            android:textStyle="bold" />
+                    <Spinner
+                        android:id="@+id/spinner_Municipio"
+                        android:layout_width="205dp"
+                        android:layout_height="25dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="5dp"
+                        android:spinnerMode="dropdown" />
 
-        <!--<ListView
-            android:id="@+id/listView_eventos"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_below="@+id/eventos"
+                    <Button
+                        android:id="@+id/buttonFilter"
+                        android:layout_width="30dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/buscar"
+                        android:text="" />
 
-            android:layout_marginTop="86dp"></ListView> -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/Recycler_eventos"
-            android:layout_width="389dp"
-            android:layout_height="464dp"
-            android:layout_below="@+id/eventos"
 
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="90dp"
-            android:layout_marginEnd="9dp"
-            android:layout_marginRight="9dp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/eventos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="140dp"
+                    android:padding="2dp"
+                    android:gravity="center_horizontal"
+                    android:fontFamily="@font/delimax"
+                    android:text="Eventos"
+                    android:textSize="18dp"
+                 />
+
+            </LinearLayout>
+
+
+
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/Recycler_eventos"
+                android:layout_width="389dp"
+                android:layout_height="464dp"
+                />
+        </LinearLayout>
+
     </RelativeLayout>
+
+
+
+
+
+
 
 </FrameLayout>
