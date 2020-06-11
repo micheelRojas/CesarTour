@@ -13,6 +13,7 @@ public class Actividad implements Serializable {
 
     // esta es la que debe ir
     private  int imageActividad;
+    private String tipoObjeto;
 
     public Actividad() {
 
@@ -71,5 +72,13 @@ public class Actividad implements Serializable {
 
     public void setMunicipio(String municipio) {
         this.municipio = municipio;
+    }
+
+    public String getTipoObjeto() {
+        return tipoObjeto;
+    }
+
+    public void setTipoObjeto(String tipoObjeto) {
+        this.tipoObjeto = tipoObjeto;
     }
 }

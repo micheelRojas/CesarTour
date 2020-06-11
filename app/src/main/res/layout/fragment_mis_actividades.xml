@@ -16,6 +16,8 @@
             android:text="MIS ACTIVIDADES"
             android:layout_marginLeft="100dp"/>
 
+
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/Recycler_mis_actividades"
             android:layout_width="385dp"

@@ -52,9 +52,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="150dp"
-            android:textColor="@color/black"
-
             android:text="Registrar Mis"
+
+            android:textColor="@color/black"
             android:textStyle="bold"
 
             />

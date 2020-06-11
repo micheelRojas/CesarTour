@@ -194,6 +194,7 @@ public class ActividadesFragment extends Fragment {
                 actividad.setNombre(item.getNombre());
                 actividad.setDescripcion(item.getDescripcion());
                 actividad.setMunicipio(item.getMunicipio());
+                actividad.setTipoObjeto(item.getTipoObjeto());
                 actividad.setImageActividad(item.getImageActividad());
             }
         }
@@ -205,6 +206,7 @@ public class ActividadesFragment extends Fragment {
         intent.putExtra("categoria", actividad.getCategoria());
         intent.putExtra("descripcion", actividad.getDescripcion());
         intent.putExtra("municipio", actividad.getMunicipio());
+        intent.putExtra("tipoObjeto", actividad.getTipoObjeto());
         intent.putExtra("imagen", Integer.toString(actividad.getImageActividad()));
 
         startActivity(intent);

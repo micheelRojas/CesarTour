@@ -33,9 +33,9 @@ public class MainActivity extends AppCompatActivity implements iComunicaFragment
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
 // lo de la base de datos
-ConexionSQLiteHelper_Sitio conexionSitio;
-ConexionSQLiteHelper_Actividad conexionActividad;
-ConexionSQLiteHelper_Evento conexionEvento;
+    public static ConexionSQLiteHelper_Sitio conexionSitio;
+    public static ConexionSQLiteHelper_Actividad conexionActividad;
+    public static ConexionSQLiteHelper_Evento conexionEvento;
 //
 
     @Override

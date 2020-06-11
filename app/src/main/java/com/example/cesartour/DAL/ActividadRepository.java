@@ -60,6 +60,7 @@ public class ActividadRepository {
                 actividad.setCategoria(valores[2]);
                 actividad.setMunicipio(valores[3]);
                 actividad.setDescripcion(valores[4]);
+                actividad.setTipoObjeto(valores[5]);
                 for (ImagenActividad item: imagenes) {
                     if(item.getCodigo() == actividad.getCodigo()){
                         actividad.setImageActividad(item.getImagen());
