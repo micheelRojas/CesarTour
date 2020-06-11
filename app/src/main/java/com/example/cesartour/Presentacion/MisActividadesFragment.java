@@ -41,7 +41,7 @@ public class MisActividadesFragment extends Fragment {
         View view =inflater.inflate(R.layout.fragment_mis_actividades, container, false);
         recyclerMisActividades= (RecyclerView) view.findViewById(R.id.Recycler_mis_actividades);
         listaAuxiliar = new ArrayList<>();
-
+        idList = new ArrayList<>();
         //misActividadesService = new MisActividadesService();
         //DAtos de prueba
         //cargarDatos();
@@ -74,7 +74,7 @@ public class MisActividadesFragment extends Fragment {
         //ArrayList<Actividad> actividades = new ArrayList<>();
         //MisActividadesService misActividadesService = new MisActividadesService();
         MisActividades = misActividadesService.consultarTodas(MainActivity.conexionActividad);
-        idList = new ArrayList<>();
+
         for (Actividad item: MisActividades) {
             listaAuxiliar.add(new Actividad(item.getNombre(), item.getCategoria(), item.getImageActividad()));
             idList.add(item.getCodigo()+"");
@@ -121,9 +121,12 @@ public class MisActividadesFragment extends Fragment {
         intent.putExtra("imagen", Integer.toString(actividad.getImageActividad()));
 
         startActivity(intent);
+        getActivity().finish();
     }
 
     public void eliminarActividad(String id){
         misActividadesService.eliminarActividad(MainActivity.conexionActividad, id);
+
     }
+
 }

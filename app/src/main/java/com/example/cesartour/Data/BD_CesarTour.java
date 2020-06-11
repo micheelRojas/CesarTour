@@ -10,11 +10,12 @@ public class BD_CesarTour {
     public static String CAMPO_CATEGORIA_ACTIVIDAD = "categoria";
     public static String CAMPO_DESCRIPCION_ACTIVIDAD = "descripcion";
     public static String CAMPO_MUNICIPIO_ACTIVIDAD= "municipio";
+    public static String CAMPO_TIPO_ACTIVIDAD= "tipoObjeto";
     public static String CAMPO_IMAGEACTIVIDA = "imageActividad";
     public static final  String CREAR_TABLA_ACTIVIDAD="CREATE TABLE" +
             " " + TABLA_ACTIVIDAD + " (" +CAMPO_CODIGO_ACTIVIDAD+" "+
             "INTEGER, "+ CAMPO_NOMBRE_ACTIVIDAD+" " +" TEXT," +  CAMPO_CATEGORIA_ACTIVIDAD+" " +" TEXT,"+ CAMPO_DESCRIPCION_ACTIVIDAD+" " +" TEXT,"
-            + CAMPO_MUNICIPIO_ACTIVIDAD+" " +" TEXT,"+CAMPO_IMAGEACTIVIDA+" "+ "INTEGER)";
+            + CAMPO_MUNICIPIO_ACTIVIDAD+" " +" TEXT," + CAMPO_TIPO_ACTIVIDAD+" " +" TEXT,"+CAMPO_IMAGEACTIVIDA+" "+ "INTEGER)";
     //constantes de la tabla evento
     public static String TABLA_EVENTO = "evento";
     public static String CAMPO_CODIGO_EVENTO = "codigo";

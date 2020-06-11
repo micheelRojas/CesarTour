@@ -1,7 +1,10 @@
 package com.example.cesartour;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
@@ -10,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.cesartour.Presentacion.MainActivity;
 import com.example.cesartour.Presentacion.MisActividadesFragment;
 
 public class MiDetalle extends AppCompatActivity {
@@ -18,9 +22,11 @@ public class MiDetalle extends AppCompatActivity {
     private TextView mCategory;
     private ImageView imagen;
 
-    private String id, nombre, categoria, descripcion, municipio, tipoObjeto, fecha, direccion;
+    //private String id, nombre, categoria, descripcion, municipio, tipoObjeto, fecha, direccion;
 
     Button eliminarMis;
+    FragmentManager fragmentManager;
+    FragmentTransaction fragmentTransaction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,16 +58,21 @@ public class MiDetalle extends AppCompatActivity {
 
     private void eliminarRecordatorio(){
         if(getIntent().getStringExtra("id") != null){
-            tipoObjeto = getIntent().getStringExtra("tipoObjeto");
+            MisActividadesFragment misActividadesFragment = new MisActividadesFragment();
+            String tipoObjeto = getIntent().getStringExtra("tipoObjeto");
             if(tipoObjeto.equals("Actividad")){
 
-                MisActividadesFragment misActividadesFragment = new MisActividadesFragment();
+
                 misActividadesFragment.eliminarActividad(getIntent().getStringExtra("id"));
                 Toast.makeText(getApplicationContext(),"Actividad eliminada",Toast.LENGTH_SHORT).show();
+                finish();
 
+                Intent intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
             }
 
-            finish();
+
+
         }
     }
 }

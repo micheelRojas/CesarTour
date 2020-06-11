@@ -31,7 +31,7 @@ public class MisActividadesRepository {
         imagenes.add(new ImagenActividad(10, R.drawable.actriobadillo));
 
         SQLiteDatabase db = conn.getReadableDatabase();
-       Actividad actividad;
+        Actividad actividad;
         Cursor cursor = db.rawQuery("SELECT * FROM " + BD_CesarTour.TABLA_ACTIVIDAD,null);
         while (cursor.moveToNext()){
             actividad= new Actividad();
@@ -39,6 +39,8 @@ public class MisActividadesRepository {
             actividad.setNombre(cursor.getString(1));
             actividad.setCategoria(cursor.getString(2));
             actividad.setDescripcion(cursor.getString(3));
+            actividad.setMunicipio(cursor.getString(4));
+            actividad.setTipoObjeto(cursor.getString(5));
             for (ImagenActividad item: imagenes) {
                 if(item.getCodigo() == actividad.getCodigo()){
                     actividad.setImageActividad(item.getImagen());
@@ -61,6 +63,7 @@ public class MisActividadesRepository {
             values.put(BD_CesarTour.CAMPO_CATEGORIA_ACTIVIDAD ,actividad.getCategoria().toString());
             values.put(BD_CesarTour.CAMPO_DESCRIPCION_ACTIVIDAD ,actividad.getDescripcion().toString());
             values.put(BD_CesarTour.CAMPO_MUNICIPIO_ACTIVIDAD ,actividad.getMunicipio().toString());
+            values.put(BD_CesarTour.CAMPO_TIPO_ACTIVIDAD ,actividad.getTipoObjeto());
             values.put(BD_CesarTour.CAMPO_IMAGEACTIVIDA ,actividad.getImageActividad());
             long idResultante = db.insert(BD_CesarTour.TABLA_ACTIVIDAD,BD_CesarTour.CAMPO_CODIGO_ACTIVIDAD,values);
 

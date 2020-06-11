@@ -63,6 +63,7 @@ public class Detalles extends AppCompatActivity {
                 actividad.setCategoria(getIntent().getStringExtra("categoria"));
                 actividad.setDescripcion(getIntent().getStringExtra("descripcion"));
                 actividad.setMunicipio(getIntent().getStringExtra("municipio"));
+                actividad.setTipoObjeto(getIntent().getStringExtra("tipoObjeto"));
                 MisActividadesFragment misActividadesFragment = new MisActividadesFragment();
                 long idResultante = misActividadesFragment.registrarActividad(actividad);
                 if (idResultante != -1){
