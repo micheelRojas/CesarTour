@@ -129,4 +129,9 @@ public class MisActividadesFragment extends Fragment {
 
     }
 
+    public boolean validar(String id){
+        boolean respuesta = misActividadesService.validar(id, MainActivity.conexionActividad);
+        return respuesta;
+    }
+
 }

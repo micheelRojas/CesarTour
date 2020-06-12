@@ -61,12 +61,9 @@ public class MiDetalle extends AppCompatActivity {
             MisActividadesFragment misActividadesFragment = new MisActividadesFragment();
             String tipoObjeto = getIntent().getStringExtra("tipoObjeto");
             if(tipoObjeto.equals("Actividad")){
-
-
                 misActividadesFragment.eliminarActividad(getIntent().getStringExtra("id"));
                 Toast.makeText(getApplicationContext(),"Actividad eliminada",Toast.LENGTH_SHORT).show();
                 finish();
-
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
             }

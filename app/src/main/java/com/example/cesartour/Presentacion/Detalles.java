@@ -56,23 +56,28 @@ public class Detalles extends AppCompatActivity {
     private void guardarRecordatorio(){
         if(getIntent().getStringExtra("id") != null){
             tipoObjeto = getIntent().getStringExtra("tipoObjeto");
-            if(tipoObjeto.equals("Actividad")){
-                Actividad actividad = new Actividad();
-                actividad.setCodigo(Integer.parseInt(getIntent().getStringExtra("id")));
-                actividad.setNombre(getIntent().getStringExtra("nombre"));
-                actividad.setCategoria(getIntent().getStringExtra("categoria"));
-                actividad.setDescripcion(getIntent().getStringExtra("descripcion"));
-                actividad.setMunicipio(getIntent().getStringExtra("municipio"));
-                actividad.setTipoObjeto(getIntent().getStringExtra("tipoObjeto"));
+            if (tipoObjeto.equals("Actividad")) {
                 MisActividadesFragment misActividadesFragment = new MisActividadesFragment();
-                long idResultante = misActividadesFragment.registrarActividad(actividad);
-                if (idResultante != -1){
-                    Toast.makeText(getApplicationContext(),"Registro correcto",Toast.LENGTH_SHORT).show();
+                boolean respuesta = misActividadesFragment.validar(getIntent().getStringExtra("id"));
+                if (respuesta == true) {
+                    Toast.makeText(getApplicationContext(), "Esta actividad ya está guardada", Toast.LENGTH_SHORT).show();
+                } else {
+                    Actividad actividad = new Actividad();
+                    actividad.setCodigo(Integer.parseInt(getIntent().getStringExtra("id")));
+                    actividad.setNombre(getIntent().getStringExtra("nombre"));
+                    actividad.setCategoria(getIntent().getStringExtra("categoria"));
+                    actividad.setDescripcion(getIntent().getStringExtra("descripcion"));
+                    actividad.setMunicipio(getIntent().getStringExtra("municipio"));
+                    actividad.setTipoObjeto(getIntent().getStringExtra("tipoObjeto"));
+
+                    long idResultante = misActividadesFragment.registrarActividad(actividad);
+                    if (idResultante != -1) {
+                        Toast.makeText(getApplicationContext(), "Registro correcto", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "No se pudo registrar", Toast.LENGTH_SHORT).show();
+                    }
                 }
-                else  Toast.makeText(getApplicationContext(),"No se pudo registrar",Toast.LENGTH_SHORT).show();
             }
         }
-
-
     }
 }

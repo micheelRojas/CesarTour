@@ -25,4 +25,15 @@ public class MisActividadesService {
     public void eliminarActividad(ConexionSQLiteHelper_Actividad conn,String codigo){
         misActividadesRepository.EliminarUnMiActividad(conn, codigo);
     }
+
+    public boolean validar(String id, ConexionSQLiteHelper_Actividad conn){
+        ArrayList<Actividad> actividadesList;
+        actividadesList = consultarTodas(conn);
+        for (Actividad item: actividadesList) {
+            if(item.getCodigo() == Integer.parseInt(id)){
+                return true;
+            }
+        }
+        return false;
+    }
 }

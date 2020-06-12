@@ -23,11 +23,12 @@ public class BD_CesarTour {
     public static String CAMPO_MUNICIPIO_EVENTO= "municipio";
     public static String CAMPO_FECHA_EVENTO= "fecha";
     public static String CAMPO_DESCRIPCION_EVENTO= "descripcion";
+    public static String CAMPO_TIPO_EVENTO = "tipoObjeto";
     public static String CAMPO_IMAGEEVENTO = "imageEvento";
     public static final  String CREAR_TABLA_EVENTO="CREATE TABLE" +
             " " + TABLA_EVENTO + " (" +CAMPO_CODIGO_EVENTO+" "+
             "INTEGER, "+ CAMPO_NOMBRE_EVENTO+" " +" TEXT," +  CAMPO_MUNICIPIO_EVENTO+" " +" TEXT,"+ CAMPO_FECHA_EVENTO+" " +" TEXT,"
-            + CAMPO_DESCRIPCION_EVENTO+" " +" TEXT,"+CAMPO_IMAGEEVENTO+" "+ "INTEGER)";
+            + CAMPO_DESCRIPCION_EVENTO+" " +" TEXT," + CAMPO_TIPO_EVENTO+" " +" TEXT,"+CAMPO_IMAGEEVENTO+" "+ "INTEGER)";
 
     //constantes de la tabla sitio
     public static String TABLA_SITIO = "sitio";
@@ -37,11 +38,13 @@ public class BD_CesarTour {
     public static String CAMPO_DIRECION_SITIO  = "direccion";
     public static String CAMPO_DESCRIPCION_SITIO= "descripcion";
     public static String CAMPO_MUNICIPIO_SITIO= "municipio";
+    public static String CAMPO_TIPO_SITIO= "tipoObjeto";
     public static String CAMPO_IMAGESITIO = "imageSitio";
     public static final  String CREAR_TABLA_SITIO="CREATE TABLE" +
             " " + TABLA_SITIO + " (" +CAMPO_CODIGO_SITIO+" "+
             "INTEGER, "+ CAMPO_NOMBRE_SITIO+" " +" TEXT," +  CAMPO_CATEGORIA_SITIO+" " +" TEXT,"+ CAMPO_DIRECION_SITIO+" " +" TEXT,"
-            + CAMPO_DESCRIPCION_SITIO+" " +" TEXT,"+  CAMPO_MUNICIPIO_SITIO+" " +" TEXT,"+CAMPO_IMAGESITIO+" "+ "INTEGER)";
+            + CAMPO_DESCRIPCION_SITIO+" " +" TEXT,"+  CAMPO_MUNICIPIO_SITIO+" " +" TEXT," +  CAMPO_TIPO_SITIO+" " +" TEXT,"
+            +CAMPO_IMAGESITIO+" "+ "INTEGER)";
 
 
 }
