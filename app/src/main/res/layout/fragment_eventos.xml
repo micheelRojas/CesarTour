@@ -9,16 +9,12 @@
     >
     <!--derechos de la imagen de fondo link: https://image.freepik.com/vector-gratis/concepto-gestion-tiempo-landing-page_52683-12192.jpg-->
     <!-- TODO: Update blank fragment layout -->
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -47,14 +43,15 @@
                         android:layout_height="wrap_content"
                         android:text="Municipio: "
                         android:textColor="@color/black"
+                        android:fontFamily="serif"
                         android:layout_marginLeft="5dp"
                         android:layout_marginTop="5dp"
                         android:textSize="15sp"
-                        android:fontFamily="serif"/>
+                       />
 
                     <Spinner
                         android:id="@+id/spinner_Municipio"
-                        android:layout_width="205dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="25dp"
                         android:layout_marginLeft="8dp"
                         android:layout_marginTop="5dp"
@@ -81,15 +78,16 @@
                     android:padding="2dp"
                     android:gravity="center_horizontal"
                     android:fontFamily="@font/delimax"
-                    android:text="Eventos"
                     android:textSize="18dp"
+                    android:text="Eventos"
+
                  />
 
             </LinearLayout>
 
 
 
-            </RelativeLayout>
+
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/Recycler_eventos"
@@ -98,7 +96,7 @@
                 />
         </LinearLayout>
 
-    </RelativeLayout>
+
 
 
 

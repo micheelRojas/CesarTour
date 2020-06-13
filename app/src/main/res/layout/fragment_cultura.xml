@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fondoculura"
     tools:context=".Presentacion.CulturaFragment">
-
+<!--derechos de la imagen de fondo link: https://st4.depositphotos.com/2585479/31145/v/450/depositphotos_311453984-stock-illustration-representative-image-of-colombia.jpg-->
     <!-- TODO: Update blank fragment layout -->
 
 
@@ -13,57 +14,87 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="44dp"
-            android:layout_marginLeft="44dp"
-            android:layout_marginTop="40dp"
-            android:text="Municipio"
-            android:textSize="15sp"
-            android:textStyle="bold" />
+            android:orientation="vertical"
+            android:background="@color/white"
+            >
 
-        <Spinner
-            android:id="@+id/spinner_Municipio"
-            android:layout_width="205dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="150dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="31dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="15dp"
-            android:spinnerMode="dropdown" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Cultura"
+                android:layout_marginLeft="120dp"
+                android:textColor="@color/black"
+                android:padding="2dp"
+                android:textSize="25dp"
+                android:fontFamily="@font/days_later"/>
+            <LinearLayout
+                android:padding="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="20dp">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Municipio: "
+                            android:textSize="15sp"
+                            android:textColor="@color/black"
+                            android:fontFamily="serif"
+                           />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="41dp"
-            android:layout_marginLeft="41dp"
-            android:layout_marginTop="75dp"
-            android:text="Categoria"
-            android:textSize="15sp"
-            android:textStyle="bold" />
+                        <Spinner
+                            android:id="@+id/spinner_Municipio"
+                            android:layout_width="wrap_content"
+                            android:layout_height="25dp"
+                            android:layout_marginLeft="8dp"
+                            android:spinnerMode="dropdown" />
 
-        <Spinner
-            android:id="@+id/spinner_categoria"
-            android:layout_width="207dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="150dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="73dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginBottom="15dp"
-            android:spinnerMode="dropdown" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Categoria: "
+                            android:textSize="15sp"
+                            android:textColor="@color/black"
+                            android:fontFamily="serif"
+                             />
+
+                        <Spinner
+                            android:id="@+id/spinner_categoria"
+                            android:layout_width="wrap_content"
+                            android:layout_height="25dp"
+                            android:layout_marginLeft="12dp"
+                            android:spinnerMode="dropdown" />
+
+                    </LinearLayout>
+                </LinearLayout>
+                <Button
+                    android:id="@+id/buttonFilter"
+                    android:layout_width="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/buscar"
+                    android:text="" />
+            </LinearLayout>
+        </LinearLayout>
 
 
         <TextView
@@ -79,31 +110,10 @@
             android:layout_marginRight="153dp"
             android:gravity="center_horizontal"
             android:text="Municipio buscado"
-            android:textSize="15sp"
-            android:textStyle="bold" />
+            android:fontFamily="@font/delimax"
+            android:textColor="@color/black"
+            android:textSize="18dp" />
 
-        <Button
-            android:id="@+id/buttonFilter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="109dp"
-
-            android:layout_marginLeft="109dp"
-            android:layout_marginTop="131dp"
-            android:text="@string/button_filter" />
-
-
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_horizontal"
-            android:text="Cultura"
-            android:textSize="18sp"
-            android:textStyle="bold" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/Recycler_cultura"
@@ -113,9 +123,9 @@
 
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="63dp"
-            android:layout_marginEnd="0dp"
-            android:layout_marginRight="0dp" />
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginRight="2dp" />
 
     </RelativeLayout>
 </FrameLayout>
