@@ -63,6 +63,7 @@ public class SitioRepository {
                 sitio.setDireccion(valores[3]);
                 sitio.setDescripcion(valores[4]);
                 sitio.setMunicipio(valores[5]);
+                sitio.setTipoObjeto(valores[6]);
                 for (ImagenSitio item: imagenes) {
                     if(item.getCodigo() == sitio.getCodigo()){
                         sitio.setImageSitio(item.getImagen());

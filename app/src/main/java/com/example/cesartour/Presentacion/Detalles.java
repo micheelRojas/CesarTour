@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.cesartour.Entity.Actividad;
 import com.example.cesartour.Entity.Evento;
+import com.example.cesartour.Entity.Sitio;
 import com.example.cesartour.R;
 
 public class Detalles extends AppCompatActivity {
@@ -99,6 +100,32 @@ public class Detalles extends AppCompatActivity {
                         } else {
                             Toast.makeText(getApplicationContext(), "No se pudo registrar", Toast.LENGTH_SHORT).show();
                         }
+                    }
+                }else{
+                    if (tipoObjeto.equals("Sitio")) {
+                        MisSitiosFragment misSitiosFragment = new MisSitiosFragment();
+                        boolean respuesta = misSitiosFragment.validar(getIntent().getStringExtra("id"));
+                        if (respuesta == true) {
+                            Toast.makeText(getApplicationContext(), "Este sitio ya está guardado", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Sitio sitio = new Sitio();
+                            sitio.setCodigo(Integer.parseInt(getIntent().getStringExtra("id")));
+                            sitio.setNombre(getIntent().getStringExtra("nombre"));
+                            sitio.setCategoria(getIntent().getStringExtra("categoria"));
+                            sitio.setDescripcion(getIntent().getStringExtra("descripcion"));
+                            sitio.setDireccion(getIntent().getStringExtra("direccion"));
+                            sitio.setMunicipio(getIntent().getStringExtra("municipio"));
+                            sitio.setTipoObjeto(getIntent().getStringExtra("tipoObjeto"));
+
+                            long idResultante = misSitiosFragment.registrarSitio(sitio);
+                            if (idResultante != -1) {
+                                Toast.makeText(getApplicationContext(), "Registro correcto", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(getApplicationContext(), "No se pudo registrar", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }else{
+                        registrarMis.setVisibility(View.INVISIBLE);
                     }
                 }
             }

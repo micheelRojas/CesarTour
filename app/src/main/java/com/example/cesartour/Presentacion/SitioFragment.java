@@ -190,6 +190,7 @@ public class SitioFragment extends Fragment {
                 sitio.setDescripcion(item.getDescripcion());
                 sitio.setDireccion(item.getDireccion());
                 sitio.setMunicipio(item.getMunicipio());
+                sitio.setTipoObjeto(item.getTipoObjeto());
                 sitio.setImageSitio(item.getImageSitio());
             }
         }
@@ -202,6 +203,7 @@ public class SitioFragment extends Fragment {
         intent.putExtra("descripcion", sitio.getDescripcion());
         intent.putExtra("direccion", sitio.getDireccion());
         intent.putExtra("municipio", sitio.getMunicipio());
+        intent.putExtra("tipoObjeto", sitio.getTipoObjeto());
         intent.putExtra("imagen", Integer.toString(sitio.getImageSitio()));
 
         startActivity(intent);

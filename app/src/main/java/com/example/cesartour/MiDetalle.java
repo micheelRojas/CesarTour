@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.example.cesartour.Presentacion.MainActivity;
 import com.example.cesartour.Presentacion.MisActividadesFragment;
 import com.example.cesartour.Presentacion.MisEventosFragment;
+import com.example.cesartour.Presentacion.MisSitiosFragment;
 
 public class MiDetalle extends AppCompatActivity {
     private TextView mDescription;
@@ -76,6 +77,15 @@ public class MiDetalle extends AppCompatActivity {
                     finish();
                     Intent intent = new Intent(this, MainActivity.class);
                     startActivity(intent);
+                }else{
+                    if(tipoObjeto.equals("Sitio")){
+                        MisSitiosFragment misSitiosFragment = new MisSitiosFragment();
+                        misSitiosFragment.eliminarSitio(getIntent().getStringExtra("id"));
+                        Toast.makeText(getApplicationContext(),"Sitio eliminado",Toast.LENGTH_SHORT).show();
+                        finish();
+                        Intent intent = new Intent(this, MainActivity.class);
+                        startActivity(intent);
+                    }
                 }
             }
 

@@ -19,7 +19,7 @@ public class MisSitiosRepository {
     ArrayList<Sitio> Datos = new ArrayList<>();
     private ArrayList<ImagenSitio> imagenes;
 
-    private ArrayList<Sitio> ConsultarTodosMisSitio(ConexionSQLiteHelper_Sitio conn) {
+    public ArrayList<Sitio> ConsultarTodosMisSitio(ConexionSQLiteHelper_Sitio conn) {
         imagenes = new ArrayList<>();
         imagenes.add(new ImagenSitio(0, R.drawable.slasierra));
         imagenes.add(new ImagenSitio(1, R.drawable.sitiosonesta));
@@ -54,7 +54,7 @@ public class MisSitiosRepository {
         db.close();
         return Datos;
     }
-    private long registrarMisSitios(ConexionSQLiteHelper_Sitio conn,Sitio sitio) {
+    public long registrarMisSitios(ConexionSQLiteHelper_Sitio conn,Sitio sitio) {
 
         SQLiteDatabase db=conn.getWritableDatabase();
         try {
@@ -78,7 +78,7 @@ public class MisSitiosRepository {
 
         }
     }
-    private void EliminarUnMiSitio(ConexionSQLiteHelper_Sitio conn,String codigo) {
+    public void EliminarUnMiSitio(ConexionSQLiteHelper_Sitio conn,String codigo) {
         SQLiteDatabase db = conn.getWritableDatabase();
         String[] parametro ={codigo.toString()};
         db.delete(BD_CesarTour.TABLA_SITIO,BD_CesarTour.CAMPO_CODIGO_SITIO+"=?",parametro);
