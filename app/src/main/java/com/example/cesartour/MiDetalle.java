@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.cesartour.Presentacion.MainActivity;
 import com.example.cesartour.Presentacion.MisActividadesFragment;
+import com.example.cesartour.Presentacion.MisEventosFragment;
 
 public class MiDetalle extends AppCompatActivity {
     private TextView mDescription;
@@ -58,14 +59,24 @@ public class MiDetalle extends AppCompatActivity {
 
     private void eliminarRecordatorio(){
         if(getIntent().getStringExtra("id") != null){
-            MisActividadesFragment misActividadesFragment = new MisActividadesFragment();
+
             String tipoObjeto = getIntent().getStringExtra("tipoObjeto");
             if(tipoObjeto.equals("Actividad")){
+                MisActividadesFragment misActividadesFragment = new MisActividadesFragment();
                 misActividadesFragment.eliminarActividad(getIntent().getStringExtra("id"));
                 Toast.makeText(getApplicationContext(),"Actividad eliminada",Toast.LENGTH_SHORT).show();
                 finish();
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
+            }else{
+                if(tipoObjeto.equals("Evento")){
+                    MisEventosFragment misEventosFragment = new MisEventosFragment();
+                    misEventosFragment.eliminarEvento(getIntent().getStringExtra("id"));
+                    Toast.makeText(getApplicationContext(),"Evento eliminado",Toast.LENGTH_SHORT).show();
+                    finish();
+                    Intent intent = new Intent(this, MainActivity.class);
+                    startActivity(intent);
+                }
             }
 
 

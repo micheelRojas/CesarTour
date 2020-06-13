@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.cesartour.Entity.Actividad;
+import com.example.cesartour.Entity.Evento;
 import com.example.cesartour.R;
 
 public class Detalles extends AppCompatActivity {
@@ -20,7 +21,7 @@ public class Detalles extends AppCompatActivity {
     private TextView mCategory;
     private ImageView imagen;
 
-    private String id, nombre, categoria, descripcion, municipio, tipoObjeto, fecha, direccion;
+    //private String id, nombre, categoria, descripcion, municipio, tipoObjeto, fecha, direccion;
 
     Button registrarMis;
 
@@ -55,7 +56,7 @@ public class Detalles extends AppCompatActivity {
 
     private void guardarRecordatorio(){
         if(getIntent().getStringExtra("id") != null){
-            tipoObjeto = getIntent().getStringExtra("tipoObjeto");
+            String tipoObjeto = getIntent().getStringExtra("tipoObjeto");
             if (tipoObjeto.equals("Actividad")) {
                 MisActividadesFragment misActividadesFragment = new MisActividadesFragment();
                 boolean respuesta = misActividadesFragment.validar(getIntent().getStringExtra("id"));
@@ -75,6 +76,29 @@ public class Detalles extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Registro correcto", Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(getApplicationContext(), "No se pudo registrar", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }else{
+                if (tipoObjeto.equals("Evento")) {
+                    MisEventosFragment misEventosFragment = new MisEventosFragment();
+                    boolean respuesta = misEventosFragment.validar(getIntent().getStringExtra("id"));
+                    if (respuesta == true) {
+                        Toast.makeText(getApplicationContext(), "Este evento ya está guardado", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Evento evento = new Evento();
+                        evento.setCodigo(Integer.parseInt(getIntent().getStringExtra("id")));
+                        evento.setNombre(getIntent().getStringExtra("nombre"));
+                        evento.setFecha(getIntent().getStringExtra("fecha"));
+                        evento.setDescripcion(getIntent().getStringExtra("descripcion"));
+                        evento.setMunicipio(getIntent().getStringExtra("municipio"));
+                        evento.setTipoObjeto(getIntent().getStringExtra("tipoObjeto"));
+
+                        long idResultante = misEventosFragment.registrarEvento(evento);
+                        if (idResultante != -1) {
+                            Toast.makeText(getApplicationContext(), "Registro correcto", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(getApplicationContext(), "No se pudo registrar", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 }
             }

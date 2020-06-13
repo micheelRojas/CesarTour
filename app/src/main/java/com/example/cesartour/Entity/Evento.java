@@ -13,6 +13,7 @@ public class Evento implements Serializable {
 
     // esta es la que debe ir
     private  int imageEvento;
+    private String tipoObjeto;
 
     public Evento() {
 
@@ -70,5 +71,13 @@ public class Evento implements Serializable {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public String getTipoObjeto() {
+        return tipoObjeto;
+    }
+
+    public void setTipoObjeto(String tipoObjeto) {
+        this.tipoObjeto = tipoObjeto;
     }
 }

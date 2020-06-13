@@ -15,6 +15,7 @@ public class Sitio implements Serializable {
 
     // esta es la que debe  ir
     private int imageSitio;
+    private String tipoObjeto;
 
     public Sitio(String nombre, String categoria,  int imageSitio) {
         this.nombre = nombre;
@@ -78,5 +79,13 @@ public class Sitio implements Serializable {
 
     public void setMunicipio(String municipio) {
         this.municipio = municipio;
+    }
+
+    public String getTipoObjeto() {
+        return tipoObjeto;
+    }
+
+    public void setTipoObjeto(String tipoObjeto) {
+        this.tipoObjeto = tipoObjeto;
     }
 }

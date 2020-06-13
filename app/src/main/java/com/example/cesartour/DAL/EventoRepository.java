@@ -57,6 +57,7 @@ public class EventoRepository {
                 evento.setMunicipio(valores[2]);
                 evento.setFecha(valores[3]);
                 evento.setDescripcion(valores[4]);
+                evento.setTipoObjeto(valores[5]);
                 for (ImagenEvento item: imagenes) {
                     if(item.getCodigo() == evento.getCodigo()){
                         evento.setImageEvento(item.getImagen());

@@ -192,6 +192,7 @@ public class EventosFragment extends Fragment {
                 evento.setDescripcion(item.getDescripcion());
                 evento.setFecha(item.getFecha());
                 evento.setMunicipio(item.getMunicipio());
+                evento.setTipoObjeto(item.getTipoObjeto());
                 evento.setImageEvento(item.getImageEvento());
             }
         }
@@ -203,6 +204,7 @@ public class EventosFragment extends Fragment {
         intent.putExtra("fecha", evento.getFecha());
         intent.putExtra("descripcion", evento.getDescripcion());
         intent.putExtra("municipio", evento.getMunicipio());
+        intent.putExtra("tipoObjeto", evento.getTipoObjeto());
         intent.putExtra("imagen", Integer.toString(evento.getImageEvento()));
 
         startActivity(intent);

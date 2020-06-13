@@ -52,6 +52,7 @@ public class MisActividadesRepository {
         db.close();
         return Datos;
     }
+
     public long registrarMisActividades(ConexionSQLiteHelper_Actividad conn,Actividad actividad) {
 
         SQLiteDatabase db=conn.getWritableDatabase();
@@ -74,6 +75,7 @@ public class MisActividadesRepository {
 
         }
     }
+
     public void EliminarUnMiActividad(ConexionSQLiteHelper_Actividad conn,String codigo) {
         SQLiteDatabase db = conn.getWritableDatabase();
         String[] parametro ={codigo.toString()};

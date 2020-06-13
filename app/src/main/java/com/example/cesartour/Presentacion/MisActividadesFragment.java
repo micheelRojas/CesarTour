@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.cesartour.BLL.MisActividadesService;
 import com.example.cesartour.DAL.ConexionSQLiteHelper_Actividad;
@@ -47,6 +48,9 @@ public class MisActividadesFragment extends Fragment {
         //cargarDatos();
         //mostrarDatos();
         consultarTodas();
+        if(listaAuxiliar.size() == 0){
+            Toast.makeText(this.getContext(), "No ha guardado ninguna actividad", Toast.LENGTH_SHORT).show();
+        }
         return view;
     }
     //DATOS DE PRUEBA
