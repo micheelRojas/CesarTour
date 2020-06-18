@@ -29,13 +29,13 @@
                             android:text="@string/category"
                             android:layout_height="wrap_content"
                             android:layout_width="wrap_content"
-                            android:padding="10dp"
+                            android:padding="5dp"
                             android:textColor="@color/black"
                             android:layout_marginLeft="100dp"/>
 
                         <TextView
                             android:id="@+id/textView_Name"
-                            android:padding="10dp"
+                            android:padding="5dp"
                             android:gravity="center"
                             android:text="@string/name"
                             android:layout_marginLeft="100dp"
@@ -50,7 +50,7 @@
 
                             android:gravity="center"
                             android:text="@string/description"
-                            android:padding="10dp"
+                            android:padding="8dp"
                             android:layout_height="100dp"
                             android:textColor="@color/black"
                             android:fontFamily="serif"

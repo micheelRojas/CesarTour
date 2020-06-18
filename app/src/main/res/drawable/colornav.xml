@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <gradient
+            android:angle="90"
+            android:centerColor="#05CCF8B5"
+            android:endColor="#70D9F6B9"
+            android:startColor="#A9E9FFD0"
+            android:gradientRadius="@dimen/cardview_compat_inset_shadow"/>
+
+
+</shape>

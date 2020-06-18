@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.cesartour.BLL.MisEventosService;
@@ -33,6 +35,8 @@ public class MisSitiosFragment extends Fragment {
     ArrayList<Sitio> listaAuxiliar;
     MisSitiosService misSitiosService = new MisSitiosService();
     ArrayList<String> idList;
+    Button buttonFilter;
+    Spinner municipioSpinner;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -123,7 +127,7 @@ public class MisSitiosFragment extends Fragment {
         intent.putExtra("imagen", Integer.toString(sitio.getImageSitio()));
 
         startActivity(intent);
-        getActivity().finish();
+        //getActivity().finish();
     }
 
     public void eliminarSitio(String id){

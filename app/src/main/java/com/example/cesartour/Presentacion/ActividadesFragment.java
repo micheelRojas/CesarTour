@@ -149,7 +149,7 @@ public class ActividadesFragment extends Fragment {
         adapterActividades.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(), "Detalles cultura", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Detalles Actividades", Toast.LENGTH_SHORT).show();
                 Selected(idList.get(recyclerActividad.getChildAdapterPosition(view)), actividadList);
                 //Toast.makeText(getApplicationContext(), "click in "+posicion, Toast.LENGTH_LONG).show();
             }

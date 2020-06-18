@@ -10,6 +10,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.cesartour.BLL.MisActividadesService;
@@ -34,6 +37,8 @@ public class MisActividadesFragment extends Fragment {
     ArrayList<Actividad> listaAuxiliar;
     MisActividadesService misActividadesService = new MisActividadesService();
     ArrayList<String> idList;
+    Button buttonFilter;
+    Spinner municipioSpinner;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,31 +46,70 @@ public class MisActividadesFragment extends Fragment {
         // Inflate the layout for this fragment
         View view =inflater.inflate(R.layout.fragment_mis_actividades, container, false);
         recyclerMisActividades= (RecyclerView) view.findViewById(R.id.Recycler_mis_actividades);
+        municipioSpinner = (Spinner) view.findViewById(R.id.spinner_Municipio);
+        crearSpinners(municipioSpinner);
+        MisActividades= new ArrayList<>();
+        MisActividades = misActividadesService.consultarTodas(MainActivity.conexionActividad);
         listaAuxiliar = new ArrayList<>();
         idList = new ArrayList<>();
-        //misActividadesService = new MisActividadesService();
-        //DAtos de prueba
-        //cargarDatos();
-        //mostrarDatos();
+
+
         consultarTodas();
         if(listaAuxiliar.size() == 0){
             Toast.makeText(this.getContext(), "No ha guardado ninguna actividad", Toast.LENGTH_SHORT).show();
         }
+        /*buttonFilter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                filter();
+            }
+        });*/
         return view;
     }
-    //DATOS DE PRUEBA
-    public  void cargarDatos(){
-        MisActividades.add(new Actividad("Pedregoza","piscina",R.drawable.valledupar));
-        MisActividades.add(new Actividad("Parapente manaure","Parapente",R.drawable.manaure));
-      MisActividades.add(new Actividad("Avistamiento de aves","Avez",R.drawable.valledupar));
-      MisActividades.add(new Actividad("Museo del acordeon","Museo",R.drawable.valledupar));
+    private void crearSpinners(Spinner municipioSpinner){
 
+        ArrayList<String> municipioSpinnerList = new ArrayList<>();
+        municipioSpinnerList.add("Todos");
+        municipioSpinnerList.add("Valledupar");
+        municipioSpinnerList.add("Bosconia");
+        municipioSpinnerList.add("Manaure");
+        municipioSpinnerList.add("Aguachica");
+        municipioSpinnerList.add("Pueblo Bello");
+        municipioSpinnerList.add("Chimichagua");
+        final ArrayAdapter<String> municipioAdapter = new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_spinner_item,
+                municipioSpinnerList);
+        municipioSpinner.setAdapter(municipioAdapter);
     }
-    public void mostrarDatos(){
+    /*public void filter() {
+        String municipio = municipioSpinner.getSelectedItem().toString();
+
+        listaAuxiliar = new ArrayList<>();
+        idList.clear();
+        for (Actividad item: MisActividades) {
+            if((item.getMunicipio().equals(municipio))){
+                listaAuxiliar.add(item);
+                idList.add(item.getCodigo()+"");
+            }else{
+                if(municipio.equals("Todos")){
+                    listaAuxiliar.add(item);
+                    idList.add(item.getCodigo()+"");
+                }
+            }
+        }
         recyclerMisActividades.setLayoutManager(new LinearLayoutManager(getContext()));
-        adapterMisActividades = new AdapterActividades(getContext(),MisActividades);
+        adapterMisActividades = new AdapterActividades(getContext(),listaAuxiliar);
         recyclerMisActividades.setAdapter(adapterMisActividades);
-    }
+
+        adapterMisActividades.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getContext(), "Detalles Mis Actividades", Toast.LENGTH_SHORT).show();
+                Selected(idList.get(recyclerMisActividades.getChildAdapterPosition(view)), MisActividades);
+                //Toast.makeText(getApplicationContext(), "click in "+posicion, Toast.LENGTH_LONG).show();
+            }
+        });
+
+    }*/
 
     public long registrarActividad(Actividad actividad){
         //ConexionSQLiteHelper_Actividad conn = new ConexionSQLiteHelper_Actividad(this.getContext(),"db_actividades",null,1);
@@ -77,7 +121,7 @@ public class MisActividadesFragment extends Fragment {
     private void consultarTodas(){
         //ArrayList<Actividad> actividades = new ArrayList<>();
         //MisActividadesService misActividadesService = new MisActividadesService();
-        MisActividades = misActividadesService.consultarTodas(MainActivity.conexionActividad);
+        //MisActividades = misActividadesService.consultarTodas(MainActivity.conexionActividad);
 
         for (Actividad item: MisActividades) {
             listaAuxiliar.add(new Actividad(item.getNombre(), item.getCategoria(), item.getImageActividad()));
@@ -125,7 +169,7 @@ public class MisActividadesFragment extends Fragment {
         intent.putExtra("imagen", Integer.toString(actividad.getImageActividad()));
 
         startActivity(intent);
-        getActivity().finish();
+        //getActivity().finish();
     }
 
     public void eliminarActividad(String id){

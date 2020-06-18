@@ -10,6 +10,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.cesartour.BLL.MisActividadesService;
@@ -33,36 +36,80 @@ public class MisEventosFragment extends Fragment {
     ArrayList<Evento> listaAuxiliar;
     MisEventosService misEventosService = new MisEventosService();
     ArrayList<String> idList;
-
+    Button buttonFilter;
+    Spinner municipioSpinner;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =inflater.inflate(R.layout.fragment_mis_eventos, container, false);
         recyclerMisEventos= (RecyclerView) view.findViewById(R.id.Recycler_mis_eventos);
+        //
+        buttonFilter =  view.findViewById(R.id.buttonFilter);
+        municipioSpinner = (Spinner) view.findViewById(R.id.spinner_Municipio);
+        crearSpinners(municipioSpinner);
+        MisEventos= new ArrayList<>();
+        MisEventos = misEventosService.consultarTodas(MainActivity.conexionEvento);
+        //
         listaAuxiliar = new ArrayList<>();
         idList = new ArrayList<>();
-        //Datosa de prueba
-        //cargarDatos();
-        //mostrarDatos();
         consultarTodas();
         if(listaAuxiliar.size() == 0){
             Toast.makeText(this.getContext(), "No ha guardado ningún evento", Toast.LENGTH_SHORT).show();
         }
+        buttonFilter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                filter();
+            }
+        });
         return view;
     }
-    //DATOS DE PRUEBA
-    public  void cargarDatos(){
-        MisEventos.add(new Evento("Festival","Valledupar",R.drawable.valledupar));
-        MisEventos.add(new Evento("Feria del parque","Valledupar",R.drawable.pueblo_bello));
-        MisEventos.add(new Evento("Feria del dulce","Valledupar",R.drawable.manaure));
-    }
-    public void mostrarDatos(){
-        recyclerMisEventos.setLayoutManager(new LinearLayoutManager(getContext()));
-        adapterMisEventos = new AdapterEventos(getContext(),MisEventos);
-        recyclerMisEventos.setAdapter(adapterMisEventos);
-    }
 
+    public void filter() {
+        String municipio = municipioSpinner.getSelectedItem().toString();
+
+        listaAuxiliar = new ArrayList<>();
+        idList.clear();
+        for (Evento item: MisEventos) {
+            if((item.getMunicipio().equals(municipio))){
+                listaAuxiliar.add(item);
+                idList.add(item.getCodigo()+"");
+            }else{
+                if(municipio.equals("Todos")){
+                    listaAuxiliar.add(item);
+                    idList.add(item.getCodigo()+"");
+                }
+            }
+        }
+        recyclerMisEventos.setLayoutManager(new LinearLayoutManager(getContext()));
+        adapterMisEventos = new AdapterEventos(getContext(),listaAuxiliar);
+        recyclerMisEventos.setAdapter(adapterMisEventos);
+
+        adapterMisEventos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getContext(), "Detalles Mis evento", Toast.LENGTH_SHORT).show();
+                Selected(idList.get(recyclerMisEventos.getChildAdapterPosition(view)), MisEventos);
+                //Toast.makeText(getApplicationContext(), "click in "+posicion, Toast.LENGTH_LONG).show();
+            }
+        });
+
+    }
+    private void crearSpinners(Spinner municipioSpinner){
+
+        ArrayList<String> municipioSpinnerList = new ArrayList<>();
+        municipioSpinnerList.add("Todos");
+        municipioSpinnerList.add("Valledupar");
+        municipioSpinnerList.add("Bosconia");
+        municipioSpinnerList.add("Manaure");
+        municipioSpinnerList.add("Aguachica");
+        municipioSpinnerList.add("Pueblo Bello");
+        municipioSpinnerList.add("Chimichagua");
+        final ArrayAdapter<String> municipioAdapter = new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_spinner_item,
+                municipioSpinnerList);
+        municipioSpinner.setAdapter(municipioAdapter);
+    }
     public long registrarEvento(Evento evento){
         //ConexionSQLiteHelper_Actividad conn = new ConexionSQLiteHelper_Actividad(this.getContext(),"db_actividades",null,1);
 
@@ -73,7 +120,7 @@ public class MisEventosFragment extends Fragment {
     private void consultarTodas(){
         //ArrayList<Actividad> actividades = new ArrayList<>();
         //MisActividadesService misActividadesService = new MisActividadesService();
-        MisEventos = misEventosService.consultarTodas(MainActivity.conexionEvento);
+       // MisEventos = misEventosService.consultarTodas(MainActivity.conexionEvento);
 
         for (Evento item: MisEventos) {
             listaAuxiliar.add(new Evento(item.getNombre(), item.getMunicipio(), item.getImageEvento()));
@@ -121,7 +168,7 @@ public class MisEventosFragment extends Fragment {
         intent.putExtra("imagen", Integer.toString(evento.getImageEvento()));
 
         startActivity(intent);
-        getActivity().finish();
+        //getActivity().finish();
     }
 
     public void eliminarEvento(String id){
